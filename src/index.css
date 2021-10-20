@@ -1,13 +1,117 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;900&display=swap');
+
+:root {
+	--select-border: #777;
+	--select-focus: blue;
+	--text-clr: #001514;
+	--bg-clr: #080705;
+	--select-arrow: var(--select-border);
+	--border-radius: 6px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+	font-size: 10px;
+	scroll-behavior: smooth;
+}
+
+/**************************
+         base styles
+ *****************************/
+
+/* Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property */
+*:where(:not(iframe, canvas, img, svg, video):not(svg *, a)) {
+	all: unset;
+	display: revert;
+}
+
+select {
+	/* all: revert; */
+	font: inherit;
+}
+
+button {
+	cursor: pointer;
+}
+
+button:active {
+	transform: scale(0.96);
+}
+
+/* for keyboard users */
+button:focus-visible {
+	outline: 2px solid var(--bg-clr);
+	outline-offset: 2px;
+}
+
+/* for non keyboard users, using mouse, touch */
+button:focus:not(:focus-visible) {
+	outline: none;
+	/* box-shadow: 1px 1px 5px rgba(1, 1, 0, 0.7); */
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol,
+ul {
+	list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+	max-width: 100%;
+	display: block;
+}
+
+/* removes spacing between cells in tables */
+table {
+	border-collapse: collapse;
+}
+
+h1,
+h2,
+h3 {
+	line-height: 1.2;
+}
+
+a {
+	color: currentColor;
+	text-decoration: none;
+}
+
+.icon {
+	width: 20px;
+}
+
+body {
+	font-family: 'Poppins', sans-serif;
+	font-size: clamp(1.3rem, 1.5vw, 1.6rem);
+	line-height: 1.6;
+	font-weight: 600;
+	position: relative;
+	overflow-x: hidden;
+
+	color: var(--text-clr);
+}
+
+/**************************
+      UTILITIES
+ *****************************/
+.container {
+	max-width: 1800px;
+	margin: 0 auto;
+	border: 1px solid red;
+}
+
+button:hover {
+	opacity: 0.8;
+}
+
+.hamburger {
+	display: none;
 }

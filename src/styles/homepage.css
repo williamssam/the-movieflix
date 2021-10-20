@@ -1,0 +1,186 @@
+/**************************
+        main section
+ *****************************/
+.hero-movie {
+	height: 80vh;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-end;
+	background: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%),
+		url('https://cdn.wallpapersafari.com/20/36/D6KGrV.jpg') no-repeat
+			top/cover;
+	background-blend-mode: multiply;
+	position: relative;
+	z-index: 1;
+	color: #fff;
+}
+
+/* .hero-movie::after {
+	position: absolute;
+	content: '';
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: var(--bg-clr);
+	opacity: 0.2;
+	z-index: -1;
+} */
+
+/* movie list seciton */
+.section {
+	padding: 3rem;
+}
+
+.section .container {
+	width: 100%;
+}
+
+.section .form {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+}
+/* select form */
+select {
+	/* A reset of styles, including removing the default dropdown arrow */
+	appearance: none;
+	/* Additional resets for further consistency */
+	background-color: transparent;
+	outline: 0;
+	border: none;
+	padding: 0 1em 0 0;
+	margin: 0;
+	width: 100%;
+	font-family: inherit;
+	font-size: inherit;
+	cursor: inherit;
+	line-height: inherit;
+}
+
+.select {
+	width: 100%;
+	min-width: 25ch;
+	max-width: 20ch;
+	border-bottom: 1.5px solid var(--select-border);
+	border-radius: 0.25em;
+	padding: 0.4rem 0.5rem;
+	/* font-size: rem; */
+	cursor: pointer;
+	line-height: 1.1;
+	background-color: #fff;
+	background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+	display: grid;
+	grid-template-areas: 'select';
+	align-items: center;
+}
+
+.select::after {
+	content: '';
+	width: 0.8em;
+	height: 0.5em;
+	background-color: var(--select-arrow);
+	clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+	justify-self: end;
+}
+
+select,
+.select::after {
+	grid-area: select;
+}
+
+.input-field {
+	position: relative;
+}
+
+.input-field svg {
+	position: absolute;
+	left: 1rem;
+	top: 1rem;
+	color: #bbb9b9;
+	width: 25px;
+}
+
+.input-field label {
+	display: none;
+}
+
+/* search field */
+input[type='search'] {
+	background: #fff;
+	padding: 1rem 2rem;
+	padding-left: 4.3rem;
+	font-size: 1.4rem;
+	width: 350px;
+	border-radius: var(--border-radius);
+	font-family: inherit;
+	box-shadow: 0 0px 2.2px rgba(0, 0, 0, 0.02), 0 0px 5.3px rgba(0, 0, 0, 0.028),
+		0 0px 10px rgba(0, 0, 0, 0.035), 0 0px 17.9px rgba(0, 0, 0, 0.042),
+		0 0px 33.4px rgba(0, 0, 0, 0.05), 0 0px 80px rgba(0, 0, 0, 0.07);
+}
+
+/* movies list */
+.movies {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+	gap: 3rem;
+	margin-top: 3rem;
+}
+
+.movies article {
+	color: #fff;
+}
+
+.movies a img {
+	transition: transform 300ms ease-in-out;
+}
+
+.movies a img:hover {
+	transform: scale(1.02);
+}
+
+.movies img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: var(--border-radius);
+}
+
+/* responsiveness */
+@media screen and (max-width: 640px) {
+	.section .form {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.select-field {
+		order: 2;
+		margin-top: 3rem;
+	}
+
+	.input-field {
+		margin: 0 auto;
+		order: 1;
+	}
+
+	input[type='search'] {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	input[type='search'] {
+		background: #fff;
+		padding: 1rem 2rem;
+		padding-left: 4.3rem;
+		font-size: 1.4rem;
+		border-radius: 9999px;
+		font-family: inherit;
+		box-shadow: 0 0px 2.2px rgba(0, 0, 0, 0.02),
+			0 0px 5.3px rgba(0, 0, 0, 0.028), 0 0px 10px rgba(0, 0, 0, 0.035),
+			0 0px 17.9px rgba(0, 0, 0, 0.042), 0 0px 33.4px rgba(0, 0, 0, 0.05),
+			0 0px 80px rgba(0, 0, 0, 0.07);
+	}
+}

@@ -1,0 +1,33 @@
+footer {
+	background: var(--bg-clr);
+	color: #fff;
+	width: 100%;
+	margin-top: 3rem;
+}
+
+footer .container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 2rem;
+
+	font-size: 1.3rem;
+}
+
+footer a {
+	text-decoration: underline;
+}
+
+.circle {
+	width: 0.5rem;
+	height: 0.5rem;
+	background: #eee;
+	border-radius: 50%;
+}
+
+@media screen and (max-width: 640px) {
+	footer .container {
+		text-align: center;
+		padding: 0.5rem 0.8rem;
+	}
+}

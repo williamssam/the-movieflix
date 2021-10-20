@@ -1,0 +1,116 @@
+.cast-section .nav-list,
+.cast-section .logo {
+	color: var(--bg-clr);
+}
+
+.cast-details {
+	margin-top: 10rem;
+}
+
+.cast-bio,
+.cast-movies {
+	align-self: flex-start;
+	margin-top: 5rem;
+	padding: 0 3rem;
+	width: 100%;
+}
+
+.cast-bio .container {
+	display: flex;
+	/* height: 70vh; */
+}
+
+.cast-bio img {
+	width: 300px;
+	object-fit: cover;
+}
+
+.bio {
+	padding: 0 3rem;
+	align-self: center;
+
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.bio h2 {
+	font-size: clamp(3rem, 5vw, 5rem);
+	font-weight: 800;
+}
+
+.bio p {
+	padding-top: 2rem;
+}
+
+.personal-info {
+	display: flex;
+	flex-direction: column;
+	gap: 3rem;
+}
+
+.cast-social {
+	display: flex;
+	gap: 5rem;
+}
+
+.cast-social a {
+	display: flex;
+	gap: 0.5rem;
+	align-items: center;
+}
+
+.cast-social a:hover {
+	opacity: 0.8;
+}
+
+.cast-movies h2 {
+	font-weight: 700;
+	font-size: 2.5rem;
+}
+
+.cast-movie {
+	display: grid;
+	grid-auto-flow: column;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	gap: 2rem;
+	margin-top: 3rem;
+}
+
+.cast-movie article {
+	overflow: hidden;
+}
+
+.cast-movie a {
+	text-align: center;
+}
+.cast-movie img {
+	width: 100%;
+	overflow: hidden;
+	object-fit: cover;
+}
+
+.cast-movie span {
+	font-size: 1.2rem;
+}
+
+@media screen and (max-width: 680px) {
+	.cast-bio .container {
+		flex-direction: column;
+		/* justify-content: center; */
+		align-items: center;
+		text-align: center;
+	}
+
+	.bio {
+		padding-top: 2rem;
+	}
+
+	.cast-social {
+		justify-content: center;
+	}
+
+	.cast-movies {
+		text-align: center;
+	}
+}
