@@ -1,31 +1,51 @@
-const TitularInfo = () => {
+const TitularInfo = ({
+	poster_path,
+	title,
+	name,
+	vote_average,
+	tagline,
+	overview,
+	release_date,
+	genres,
+	credits,
+	videos,
+}) => {
 	return (
-		<section class='titular-info'>
-			<div class='container'>
+		<section className='titular-info'>
+			<div className='container'>
 				<img
-					src='https://m.media-amazon.com/images/M/MV5BOTMyMjEyNzIzMV5BMl5BanBnXkFtZTgwNzIyNjU0NzE@._V1_.jpg'
-					alt=''
-					tittle='zootopia'
+					src={`https://image.tmdb.org/t/p/original${poster_path}`}
+					alt={title ?? name}
+					tittle={title ?? name}
 				/>
 
-				<div class='details'>
-					<div class='detail'>
+				<div className='details'>
+					<div className='detail'>
 						<div>
-							<h2>Zootopia</h2>
-							<div class='tag'>
-								<p class='year'>2014</p>
+							<h2>{title ?? name}</h2>
+							<div className='tag'>
+								{release_date && (
+									<p className='year'>{release_date.slice(0, 4)}</p>
+								)}
 								<div>
-									<p class='tags'>Action, Family, Animation</p>
+									{genres && (
+										<p className='tags'>
+											{genres.map((genre) => genre.name).join(', ')}
+										</p>
+									)}
 								</div>
 							</div>
 						</div>
 
-						<h2 class='rating'>
-							7.5<span>/10</span>
-						</h2>
+						{vote_average && (
+							<h2 className='rating'>
+								{vote_average}
+								<span>/10</span>
+							</h2>
+						)}
 					</div>
 
-					<button class='add-btn'>
+					<button className='add-btn'>
 						<svg
 							xmlns='http://www.w3.org/2000/svg'
 							width='16'
@@ -40,37 +60,49 @@ const TitularInfo = () => {
 					</button>
 
 					<div class='story'>
-						<p class='tagline'>
-							mankind was born here, but was not meant to die here
-						</p>
+						{tagline && <p className='tagline'>{tagline}</p>}
 
-						<p class='storyline'>
-							From the largest elephant to the smallest shrew, the city
-							of Zootopia is a mammal metropolis where various animals
-							live and thrive. When Judy Hopps becomes the first rabbit
-							to join the police force, she quickly learns how tough it
-							is to enforce the law. Determined to prove herself, Judy
-							jumps at the opportunity to solve a mysterious case.
-						</p>
+						{overview && <p className='storyline'>{overview}</p>}
 					</div>
 
-					<div class='crew'>
-						<p>
-							<strong>Director(s):</strong> Rich Moore, Jared Bush
-						</p>
-						<p>
-							<strong>Writer(s):</strong> Rich Moore, Jared Bush
-						</p>
+					<div className='crew'>
+						{credits.crew && (
+							<p>
+								<strong>Director(s):</strong>{' '}
+								{credits.crew.map((crews) =>
+									crews.known_for_department === 'Directing'
+										? crews.name
+										: null
+								)}
+							</p>
+						)}
+						{credits.crew && (
+							<p>
+								<strong>Writer(s):</strong>{' '}
+								{credits.crew.map((crews) =>
+									crews.known_for_department === 'Writing'
+										? crews.name
+										: null
+								)}
+							</p>
+						)}
 					</div>
 				</div>
 
-				<div class='video'>
-					<iframe
-						src='https://www.youtube.com/embed/jWM0ct-OLsM'
-						title='YouTube video player'
-						frameborder='0'
-						allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-						allowfullscreen></iframe>
+				<div className='video'>
+					{videos &&
+						videos.results.map((video) =>
+							video.type === 'Trailer' ? (
+								<iframe
+									src={`https://www.youtube.com/embed/${video.key}`}
+									title='YouTube video player'
+									frameBorder='0'
+									allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+									allowFullScreen></iframe>
+							) : (
+								''
+							)
+						)}
 				</div>
 			</div>
 		</section>

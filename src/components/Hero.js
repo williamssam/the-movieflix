@@ -1,7 +1,7 @@
 const Hero = () => {
 	return (
-		<section class='hero-movie'>
-			<div class='hero-movie-container'></div>
+		<section className='hero-movie'>
+			<div className='hero-movie-container'></div>
 		</section>
 	)
 }

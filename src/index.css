@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;900&display=swap');
 
 :root {
+	--good-rating-clr: #029602;
+	--bad-rating-clr: red;
+	--average-rating-clr: orange;
+
 	--select-border: #777;
 	--select-focus: blue;
 	--text-clr: #001514;
@@ -114,4 +118,17 @@ button:hover {
 
 .hamburger {
 	display: none;
+}
+
+/* rating color scheme */
+.average {
+	color: var(--average-rating-clr);
+}
+
+.good {
+	color: var(--good-rating-clr);
+}
+
+.bad {
+	color: var(--bad-rating-clr);
 }

@@ -1,45 +1,58 @@
-const CastBio = () => {
+import { getDateName, getGender } from '../misc'
+const date = new Date().getFullYear()
+
+const CastBio = ({
+	biography,
+	birthday,
+	name,
+	place_of_birth,
+	profile_path,
+	gender,
+	combined_credits: { cast },
+}) => {
 	return (
-		<div class='cast-bio'>
-			<div class='container'>
+		<div className='cast-bio'>
+			<div className='container'>
 				<img
-					src='https://www.themoviedb.org/t/p/w600_and_h900_bestv2/be1bVF7qGX91a6c5WeRPs5pKXln.jpg'
-					alt='idris elba'
-					title='idris elba'
+					src={`https://image.tmdb.org/t/p/original${profile_path}`}
+					alt={name}
+					title={name}
 				/>
 
-				<div class='bio'>
+				<div className='bio'>
 					<div>
-						<h2>Idris Elba</h2>
-						<p>
-							Idris Elba (born 6 September 1972) is a British television,
-							theatre, and film actor who has starred in both British and
-							American productions. One of his first acting roles was in
-							the soap opera Family Affairs. Since then he has worked in
-							a variety of TV and movie projects including Ultraviolet,
-							The Wire, No Good Deed and Zootopia.
-						</p>
+						{name && <h2>{name}</h2>}
+						{biography && <p>{biography}</p>}
 					</div>
 
-					<div class='personal-info'>
+					<div className='personal-info'>
 						<div>
-							<p>
-								<strong>Gender:</strong> Male
-							</p>
-							<p>
-								<strong>Date of Birth:</strong> 2020 - 06 - 12 (48years
-								old)
-							</p>
-							<p>
-								<strong>Place of Birth:</strong> Hackney, London,
-								England, UK
-							</p>
-							<p>
-								<strong>Known Credits:</strong> 107 movies/tvseries
-							</p>
+							{gender && (
+								<p>
+									<strong>Gender:</strong> {getGender(gender)}
+								</p>
+							)}
+							{birthday && (
+								<p>
+									<strong>Date of Birth:</strong>{' '}
+									{getDateName(birthday)} (
+									{date - birthday.slice(0, 4)}years old)
+								</p>
+							)}
+							{place_of_birth && (
+								<p>
+									<strong>Place of Birth:</strong> {place_of_birth}
+								</p>
+							)}
+							{cast && (
+								<p>
+									<strong>Known Credits:</strong> {cast.length}{' '}
+									movies/tvseries
+								</p>
+							)}
 						</div>
 
-						<ul class='cast-social'>
+						<ul className='cast-social'>
 							<li>
 								<a href='#'>
 									<svg

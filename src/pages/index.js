@@ -1,21 +1,8 @@
-import Hero from '../components/Hero'
-import Movies from '../components/Movies'
-import Select from '../components/Select'
 import '../styles/homepage.css'
+import Movies from './Movies'
 
 const Homepage = () => {
-	return (
-		<main>
-			<Hero />
-
-			<section className='section'>
-				<div className='container'>
-					<Select />
-					<Movies />
-				</div>
-			</section>
-		</main>
-	)
+	return <Movies />
 }
 
 export default Homepage

@@ -1,85 +1,75 @@
-const Status = () => {
+import { getLanguageName, getDateName, formatTime } from '../misc'
+
+const Status = ({
+	status,
+	budget,
+	revenue,
+	production_companies,
+	homepage,
+	original_language,
+	release_date,
+	runtime,
+}) => {
 	return (
 		<section class='status'>
 			<div class='container'>
-				<div>
-					<p>Staus</p>
-					<p>Released</p>
-				</div>
+				{status && (
+					<div>
+						<p>Staus</p>
+						<p>{status}</p>
+					</div>
+				)}
 
-				<div>
-					<p>Release Date</p>
-					<p>November 20, 2021</p>
-				</div>
+				{release_date && (
+					<div>
+						<p>Release Date</p>
+						<p>{getDateName(release_date)}</p>
+					</div>
+				)}
 
-				<div>
-					<p>Original Language</p>
-					<p>English</p>
-				</div>
+				{original_language && (
+					<div>
+						<p>Original Language</p>
+						<p>{getLanguageName(original_language)}</p>
+					</div>
+				)}
 
-				<div>
-					<p>Runtime</p>
-					<p>2h 49min</p>
-				</div>
+				{runtime && (
+					<div>
+						<p>Runtime</p>
+						<p>{formatTime(runtime)}</p>
+					</div>
+				)}
 
-				<div>
-					<p>Budget</p>
-					<p>$165,000,000.00</p>
-				</div>
+				{production_companies && (
+					<div>
+						<p>Production Company</p>
+						<p>{production_companies[0].name}</p>
+					</div>
+				)}
 
-				<div>
-					<p>Revenue</p>
-					<p>$621,752,000.00</p>
-				</div>
+				{budget && (
+					<div>
+						<p>Budget</p>
+						<p>${budget.toLocaleString()}</p>
+					</div>
+				)}
 
-				<div>
-					<p>Homepage</p>
-					<a href='#'>
-						interstellarmovie.net/
-						<svg
-							class='icon'
-							fill='none'
-							stroke='currentColor'
-							viewBox='0 0 24 24'
-							xmlns='http://www.w3.org/2000/svg'>
-							<path
-								stroke-linecap='round'
-								stroke-linejoin='round'
-								stroke-width='2'
-								d='M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1'></path>
-						</svg>
-					</a>
-				</div>
+				{revenue && (
+					<div>
+						<p>Revenue</p>
+						<p>${revenue.toLocaleString()}</p>
+					</div>
+				)}
 
-				<div>
-					<p>Facebook</p>
-					<a href='#'>
-						interstellar
-						<svg
-							xmlns='http://www.w3.org/2000/svg'
-							width='24'
-							height='24'
-							viewBox='0 0 24 24'
-							fill='currentColor'>
-							<path d='M12.001 2.002c-5.522 0-9.999 4.477-9.999 9.999 0 4.99 3.656 9.126 8.437 9.879v-6.988h-2.54v-2.891h2.54V9.798c0-2.508 1.493-3.891 3.776-3.891 1.094 0 2.24.195 2.24.195v2.459h-1.264c-1.24 0-1.628.772-1.628 1.563v1.875h2.771l-.443 2.891h-2.328v6.988C18.344 21.129 22 16.992 22 12.001c0-5.522-4.477-9.999-9.999-9.999z'></path>
-						</svg>
-					</a>
-				</div>
-
-				<div>
-					<p>Twitter</p>
-					<a href='#'>
-						interstellar
-						<svg
-							xmlns='http://www.w3.org/2000/svg'
-							width='24'
-							height='24'
-							viewBox='0 0 24 24'
-							fill='currentColor'>
-							<path d='M19.633 7.997c.013.175.013.349.013.523 0 5.325-4.053 11.461-11.46 11.461-2.282 0-4.402-.661-6.186-1.809.324.037.636.05.973.05a8.07 8.07 0 0 0 5.001-1.721 4.036 4.036 0 0 1-3.767-2.793c.249.037.499.062.761.062.361 0 .724-.05 1.061-.137a4.027 4.027 0 0 1-3.23-3.953v-.05c.537.299 1.16.486 1.82.511a4.022 4.022 0 0 1-1.796-3.354c0-.748.199-1.434.548-2.032a11.457 11.457 0 0 0 8.306 4.215c-.062-.3-.1-.611-.1-.923a4.026 4.026 0 0 1 4.028-4.028c1.16 0 2.207.486 2.943 1.272a7.957 7.957 0 0 0 2.556-.973 4.02 4.02 0 0 1-1.771 2.22 8.073 8.073 0 0 0 2.319-.624 8.645 8.645 0 0 1-2.019 2.083z'></path>
-						</svg>
-					</a>
-				</div>
+				{homepage && (
+					<div>
+						<p>Homepage</p>
+						<a href={homepage} target='_blank' rel='noreferrer'>
+							Movie Homepage
+						</a>
+					</div>
+				)}
 			</div>
 		</section>
 	)

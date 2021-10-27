@@ -1,16 +1,16 @@
 import { Link } from 'react-router-dom'
 import { getAverageRatings } from '../misc'
 
-const Recommended = ({ recommendations: { results } }) => {
-	console.log(results)
+const Similar = ({ similar: { results } }) => {
 	return (
 		<section class='recommended-movie'>
 			<div class='container'>
-				<h2>You should also watch</h2>
+				<h2>Similar Movies</h2>
 
 				<div class='recommend'>
-					{results.map(
-						({ id, title, poster_path, vote_average, name }) => (
+					{results
+						.slice(0, 12)
+						.map(({ id, title, poster_path, vote_average, name }) => (
 							<article key={id}>
 								<Link to={`/${id}`} title={title}>
 									<img
@@ -36,12 +36,11 @@ const Recommended = ({ recommendations: { results } }) => {
 									</div>
 								</div>
 							</article>
-						)
-					)}
+						))}
 				</div>
 			</div>
 		</section>
 	)
 }
 
-export default Recommended
+export default Similar

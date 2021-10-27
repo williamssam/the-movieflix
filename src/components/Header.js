@@ -1,12 +1,7 @@
-import {
-	BiBookmarks,
-	BiCarousel,
-	BiLogInCircle,
-	BiMovie,
-	BiTv,
-} from 'react-icons/bi'
+import { BiCarousel, BiLogInCircle } from 'react-icons/bi'
+
+import { Link, NavLink } from 'react-router-dom'
 import '../styles/header.css'
-import { Link } from 'react-router-dom'
 
 const Header = () => {
 	return (
@@ -18,7 +13,7 @@ const Header = () => {
 				<nav className='nav'>
 					<ul className='nav-list'>
 						<li>
-							<a href='#'>
+							<NavLink activeClassName='active' to='/movies'>
 								<svg
 									xmlns='http://www.w3.org/2000/svg'
 									width='16'
@@ -28,11 +23,11 @@ const Header = () => {
 									<path d='M20 3H4c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2zm.001 6c-.001 0-.001 0 0 0h-.466l-2.667-4H20l.001 4zm-5.466 0-2.667-4h2.596l2.667 4h-2.596zm-2.404 0H9.535L6.869 5h2.596l2.666 4zM4 5h.465l2.667 4H4V5z'></path>
 								</svg>
 								<span>movies</span>
-							</a>
+							</NavLink>
 						</li>
 
 						<li>
-							<a href='#'>
+							<NavLink activeClassName='active' to='/tv-shows'>
 								<svg
 									xmlns='http://www.w3.org/2000/svg'
 									width='16'
@@ -42,11 +37,11 @@ const Header = () => {
 									<path d='M20 6h-5.586l2.293-2.293-1.414-1.414L12 5.586 8.707 2.293 7.293 3.707 9.586 6H4c-1.103 0-2 .897-2 2v11c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V8c0-1.103-.897-2-2-2z'></path>
 								</svg>
 								<span>series</span>
-							</a>
+							</NavLink>
 						</li>
 
 						<li>
-							<a href='#'>
+							<NavLink activeClassName='active' to='/watchlist'>
 								<svg
 									xmlns='http://www.w3.org/2000/svg'
 									width='16'
@@ -57,7 +52,7 @@ const Header = () => {
 									<path d='M15.585 3h1.414c1.103 0 2 .897 2 2v10.443l2 2.489V3c0-1.103-.897-2-2-2h-8c-1.103 0-2 .897-2 2h6.586z'></path>
 								</svg>
 								<span>my watchlist</span>
-							</a>
+							</NavLink>
 						</li>
 					</ul>
 				</nav>

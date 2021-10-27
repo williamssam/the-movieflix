@@ -12,7 +12,7 @@
 	color: #fff;
 }
 
-.header.active {
+.header.selected {
 	background: #fff;
 	color: var(--text-clr);
 }
@@ -78,6 +78,9 @@
 	color: #fff;
 	padding: 0.3rem 0.7rem;
 	border-radius: var(--border-radius);
+}
+.nav-list li a.active::after {
+	all: unset;
 }
 
 /* signout and signin buttons */
