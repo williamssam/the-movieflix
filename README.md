@@ -15,3 +15,14 @@
 What i learnt
 
 -  using "NavLink" in react-router-dom to add a special class to the current active link
+
+notes:
+
+-  decided to use ternary operator for conditional rendering instead of && in JSX. Cos with && if the first part returns 'undefined' it throws an error. The problem here is that undefined && anything will always evaluate to undefined. likewise if the first side evaluates to [] it returns 0. So i used ternary operator to avoid this fall
+
+for more info: https://kentcdodds.com/blog/use-ternaries-rather-than-and-and-in-jsx
+
+used
+
+-  optional chaining (?.)
+-  Nullish coalescing operator (??)

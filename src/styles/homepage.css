@@ -1,4 +1,35 @@
 /**************************
+      home section
+ *****************************/
+.home {
+	background: linear-gradient(transparent, black),
+		url('https://www.teahub.io/photos/full/220-2207320_wonder-woman-background-hd.png')
+			no-repeat center/cover;
+	/* background-blend-mode: color-dodge; */
+	height: 50vh;
+	color: #fff;
+	padding: 0 3rem;
+}
+
+.home .container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	gap: 2.5rem;
+}
+
+.home-text {
+	text-align: center;
+}
+
+.home h2 {
+	font-size: 4rem;
+	font-weight: 900;
+}
+
+/**************************
         main section
  *****************************/
 .hero-movie {
@@ -48,6 +79,17 @@
 .title {
 	font-size: 2rem;
 	font-weight: 900;
+}
+
+.overall-title {
+	font-size: clamp(1.3rem, 3vw, 2.5rem);
+	margin-top: 3rem;
+	padding: 0.3rem 3rem;
+	text-transform: uppercase;
+	background: var(--text-clr);
+	width: max-content;
+	color: #fff;
+	letter-spacing: 1px;
 }
 
 .section .form {
@@ -123,6 +165,7 @@ select,
 /* search field */
 input[type='search'] {
 	background: #fff;
+	color: var(--text-clr);
 	padding: 1rem 2rem;
 	padding-left: 4.3rem;
 	font-size: 1.4rem;
@@ -180,6 +223,7 @@ input[type='search'] {
 .movie-other-info {
 	display: flex;
 	align-items: center;
+	gap: 3rem;
 	justify-content: space-between;
 	font-size: 1.375rem;
 }

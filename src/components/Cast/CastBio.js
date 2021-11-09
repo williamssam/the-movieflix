@@ -1,5 +1,5 @@
-import { getDateName, getGender } from '../misc'
-const date = new Date().getFullYear()
+import { getDateName } from 'misc/getDateName'
+import { getGender } from 'misc/getGender'
 
 const CastBio = ({
 	biography,
@@ -10,8 +10,9 @@ const CastBio = ({
 	gender,
 	combined_credits: { cast },
 }) => {
+	const date = new Date().getFullYear()
 	return (
-		<div className='cast-bio'>
+		<section className='cast-bio'>
 			<div className='container'>
 				<img
 					src={`https://image.tmdb.org/t/p/original${profile_path}`}
@@ -21,38 +22,38 @@ const CastBio = ({
 
 				<div className='bio'>
 					<div>
-						{name && <h2>{name}</h2>}
-						{biography && <p>{biography}</p>}
+						{name ? <h2>{name}</h2> : null}
+						{biography ? <p>{biography}</p> : null}
 					</div>
 
 					<div className='personal-info'>
 						<div>
-							{gender && (
+							{gender ? (
 								<p>
 									<strong>Gender:</strong> {getGender(gender)}
 								</p>
-							)}
-							{birthday && (
+							) : null}
+							{birthday ? (
 								<p>
 									<strong>Date of Birth:</strong>{' '}
 									{getDateName(birthday)} (
 									{date - birthday.slice(0, 4)}years old)
 								</p>
-							)}
-							{place_of_birth && (
+							) : null}
+							{place_of_birth ? (
 								<p>
 									<strong>Place of Birth:</strong> {place_of_birth}
 								</p>
-							)}
-							{cast && (
+							) : null}
+							{cast ? (
 								<p>
 									<strong>Known Credits:</strong> {cast.length}{' '}
 									movies/tvseries
 								</p>
-							)}
+							) : null}
 						</div>
 
-						<ul className='cast-social'>
+						{/* <ul className='cast-social'>
 							<li>
 								<a href='#'>
 									<svg
@@ -93,11 +94,11 @@ const CastBio = ({
 									</svg>
 								</a>
 							</li>
-						</ul>
+						</ul> */}
 					</div>
 				</div>
 			</div>
-		</div>
+		</section>
 	)
 }
 

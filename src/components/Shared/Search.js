@@ -1,17 +1,6 @@
-const Select = () => {
+const Search = () => {
 	return (
-		<form className='form'>
-			<div className='select-field'>
-				<div className='select'>
-					<select name='select' id='select'>
-						<option value='popular'>Popular Movies</option>
-						<option value='latest'>Latest Movies</option>
-						<option value='top-rated'>Top-Rated Movies</option>
-						<option value='upcoming'>Upcoming Movies</option>
-					</select>
-				</div>
-			</div>
-
+		<>
 			<div className='input-field'>
 				<svg
 					className='icon'
@@ -35,8 +24,8 @@ const Select = () => {
 					/>
 				</div>
 			</div>
-		</form>
+		</>
 	)
 }
 
-export default Select
+export default Search

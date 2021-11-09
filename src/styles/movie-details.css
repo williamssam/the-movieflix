@@ -1,6 +1,6 @@
 /* movie hero */
 .movie-hero {
-	height: 70vh;
+	height: 80vh;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
@@ -52,7 +52,7 @@
 }
 
 .details {
-	align-self: center;
+	padding: 1rem 0;
 }
 
 .detail {
@@ -119,7 +119,7 @@
 	background: var(--bg-clr)
 		url('https://cdn.wallpapersafari.com/20/36/D6KGrV.jpg') no-repeat
 		center/cover;
-	background-blend-mode: luminosity;
+	background-blend-mode: saturation;
 	width: 100%;
 	margin-top: 5rem;
 	font-size: 1.4rem;
@@ -190,8 +190,9 @@
 
 .cast img {
 	width: 100%;
-	height: 200px;
+	height: 250px;
 	object-fit: cover;
+	object-position: top;
 }
 
 .cast div {
@@ -218,16 +219,10 @@
 
 .recommend {
 	display: grid;
-	/* grid-auto-flow: column; */
 	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 	gap: 2rem;
 	padding-top: 3rem;
 }
-
-/* .recommend article {
-	border-radius: var(--border-radius);
-	overflow: hidden;
-} */
 
 .recommend article {
 	color: #fff;

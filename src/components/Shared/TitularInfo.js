@@ -8,8 +8,10 @@ const TitularInfo = ({
 	release_date,
 	genres,
 	credits,
+	created_by,
 	videos,
 }) => {
+	const video = videos.results.find(({ type }) => type === 'Trailer')
 	return (
 		<section className='titular-info'>
 			<div className='container'>
@@ -24,25 +26,25 @@ const TitularInfo = ({
 						<div>
 							<h2>{title ?? name}</h2>
 							<div className='tag'>
-								{release_date && (
+								{release_date ? (
 									<p className='year'>{release_date.slice(0, 4)}</p>
-								)}
+								) : null}
 								<div>
-									{genres && (
+									{genres ? (
 										<p className='tags'>
 											{genres.map((genre) => genre.name).join(', ')}
 										</p>
-									)}
+									) : null}
 								</div>
 							</div>
 						</div>
 
-						{vote_average && (
+						{vote_average ? (
 							<h2 className='rating'>
 								{vote_average}
 								<span>/10</span>
 							</h2>
-						)}
+						) : null}
 					</div>
 
 					<button className='add-btn'>
@@ -59,50 +61,59 @@ const TitularInfo = ({
 						<span>Add to wishlist</span>
 					</button>
 
-					<div class='story'>
-						{tagline && <p className='tagline'>{tagline}</p>}
+					<div className='story'>
+						{tagline ? <p className='tagline'>{tagline}</p> : null}
 
-						{overview && <p className='storyline'>{overview}</p>}
+						{overview ? <p className='storyline'>{overview}</p> : null}
 					</div>
 
 					<div className='crew'>
-						{credits.crew && (
+						{credits.crew ? (
 							<p>
 								<strong>Director(s):</strong>{' '}
-								{credits.crew.map((crews) =>
-									crews.known_for_department === 'Directing'
-										? crews.name
-										: null
-								)}
+								{credits.crew
+									.map((crews) =>
+										crews.department === 'Directing'
+											? crews.name
+											: null
+									)
+									.filter(Boolean)
+									.join(', ')}
 							</p>
-						)}
-						{credits.crew && (
+						) : null}
+
+						{created_by ? (
+							<p>
+								<strong>Created by:</strong>{' '}
+								{created_by.map((created) => created.name).join(', ')}
+							</p>
+						) : null}
+
+						{credits.crew ? (
 							<p>
 								<strong>Writer(s):</strong>{' '}
-								{credits.crew.map((crews) =>
-									crews.known_for_department === 'Writing'
-										? crews.name
-										: null
-								)}
+								{credits.crew
+									.map((crews) =>
+										crews.department === 'Writing' ? crews.name : null
+									)
+									.filter(Boolean)
+									.join(', ')}
 							</p>
-						)}
+						) : null}
 					</div>
 				</div>
 
 				<div className='video'>
-					{videos &&
-						videos.results.map((video) =>
-							video.type === 'Trailer' ? (
-								<iframe
-									src={`https://www.youtube.com/embed/${video.key}`}
-									title='YouTube video player'
-									frameBorder='0'
-									allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-									allowFullScreen></iframe>
-							) : (
-								''
-							)
-						)}
+					{/* using the 'find' method to get first value at the top */}
+					{video ? (
+						<iframe
+							src={`https://www.youtube.com/embed/${video.key}`}
+							title='YouTube video player'
+							frameBorder='0'
+							allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+							allowFullScreen
+							key={video.key}></iframe>
+					) : null}
 				</div>
 			</div>
 		</section>

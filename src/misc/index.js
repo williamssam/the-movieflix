@@ -1,5 +1,0 @@
-export * from './getAverageRatings'
-export * from './getLanguageName'
-export * from './getDateName'
-export * from './formatTime'
-export * from './getGender'
