@@ -1,4 +1,4 @@
-import { getAverageRatings } from 'misc/getAverageRatings'
+import { getAverageRatings } from 'utils/getAverageRatings'
 import { Link } from 'react-router-dom'
 
 const Film = ({ id, title, name, poster_path, vote_average, release_date }) => {

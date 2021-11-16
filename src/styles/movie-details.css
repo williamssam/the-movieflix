@@ -209,6 +209,63 @@
 	font-style: italic;
 }
 
+/* seasons */
+.tvshow-seasons {
+	align-self: flex-start;
+	margin-top: 5rem;
+	padding: 0 3rem;
+	width: 100%;
+	/* background: red; */
+}
+
+.seasons {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+	gap: 4rem;
+	padding-top: 3rem;
+}
+
+.seasons img {
+	width: 140px;
+	height: 100%;
+	object-fit: cover;
+}
+
+.seasons article {
+	background: #f8f8f8;
+	display: flex;
+	gap: 2rem;
+	border: 1px solid #eee;
+	border-radius: var(--border-radius);
+	overflow: hidden;
+}
+
+.season-text {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	padding: 2rem;
+	padding-left: 0;
+}
+
+.season-text p {
+	font-size: 1.2rem;
+}
+
+.seasons .heading {
+	display: flex;
+	align-items: center;
+	gap: 1.5rem;
+}
+
+.seasons h3 {
+	font-size: 2rem;
+}
+
+.seasons h4 {
+	font-size: 1.4rem;
+}
+
 /* recommended movies */
 .recommended-movie {
 	align-self: flex-start;

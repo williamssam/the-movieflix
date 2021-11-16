@@ -1,4 +1,4 @@
-import { getAverageRatings } from 'misc/getAverageRatings'
+import { getAverageRatings } from 'utils/getAverageRatings'
 import { Link } from 'react-router-dom'
 
 const Film = ({ id, title, name, poster_path, vote_average, release_date }) => {
@@ -9,6 +9,7 @@ const Film = ({ id, title, name, poster_path, vote_average, release_date }) => {
 					<img
 						src={`https://image.tmdb.org/t/p/original${poster_path}`}
 						alt=''
+						loading='lazy'
 					/>
 				</Link>
 

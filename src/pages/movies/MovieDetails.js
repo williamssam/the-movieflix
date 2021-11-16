@@ -9,13 +9,13 @@ import 'styles/movie-details.css'
 import SimilarMovies from 'components/MoviePage/SimilarMovies'
 import RecommendedMovies from 'components/MoviePage/RecommendedMovies'
 
+/*
+	Individual movie details page
+*/
 const MovieDetails = () => {
 	const { id } = useParams()
 	const { data, error } = useRequest(id, '/movie')
 
-	console.log('mov', data)
-
-	// console.log(data)
 	if (!data) return <Loader />
 	if (error) return <Error />
 

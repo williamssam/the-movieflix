@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { getAverageRatings } from 'misc/getAverageRatings'
+import { getAverageRatings } from 'utils/getAverageRatings'
 import defaultImage from 'assets/default-image.jpg'
 
 const SimilarTvShows = ({ similar: { results } }) => {
@@ -29,6 +29,7 @@ const SimilarTvShows = ({ similar: { results } }) => {
 													: defaultImage
 											}
 											alt={title}
+											loading='lazy'
 										/>
 									</Link>
 

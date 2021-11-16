@@ -1,11 +1,18 @@
+import { useEffect, useState } from 'react'
 import { BiCarousel, BiLogInCircle } from 'react-icons/bi'
-
 import { Link, NavLink } from 'react-router-dom'
 import '../styles/header.css'
 
 const Header = () => {
+	const [small, setSmall] = useState(false)
+
+	useEffect(() => {
+		window.addEventListener('scroll', () =>
+			setSmall(window.pageYOffset > 300)
+		)
+	}, [])
 	return (
-		<header className='header'>
+		<header className={`header ${small ? 'small' : ''}`}>
 			<div className='container'>
 				<h1 className='logo'>
 					<Link to='/'> the/MovieFlix </Link>

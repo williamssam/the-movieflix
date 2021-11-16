@@ -5,17 +5,15 @@ import Status from 'components/Shared/Status'
 import TitularInfo from 'components/Shared/TitularInfo'
 import Loader from 'components/Loader'
 import Error from 'components/Error'
-import 'styles/movie-details.css'
 import RecommendedTvShows from 'components/TvShows/RecommendedTvShows'
 import SimilarTvShows from 'components/TvShows/SimilarTvShows'
 
+import 'styles/movie-details.css'
+import Seasons from 'components/TvShows/Seasons'
 const TvShowsDetails = () => {
 	const { id } = useParams()
 	const { data, error } = useRequest(id, '/tv')
 
-	console.log('series', data)
-
-	// console.log(data)
 	if (!data) return <Loader />
 	if (error) return <Error />
 
@@ -31,6 +29,7 @@ const TvShowsDetails = () => {
 				<TitularInfo {...data} />
 				<Status {...data} />
 				<Casts {...data} />
+				<Seasons {...data} />
 				<RecommendedTvShows {...data} />
 				<SimilarTvShows {...data} />
 			</section>

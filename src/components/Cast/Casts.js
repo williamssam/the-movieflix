@@ -28,6 +28,7 @@ const Casts = ({ credits: { cast } }) => {
 															? `https://image.tmdb.org/t/p/original${profile_path}`
 															: defaultCastImage
 													}
+													loading='lazy'
 													alt={original_name}
 													title={original_name ?? name}
 												/>

@@ -1,3 +1,5 @@
+import defaultImage from 'assets/default-image.jpg'
+
 const TitularInfo = ({
 	poster_path,
 	title,
@@ -12,11 +14,16 @@ const TitularInfo = ({
 	videos,
 }) => {
 	const video = videos.results.find(({ type }) => type === 'Trailer')
+
 	return (
 		<section className='titular-info'>
 			<div className='container'>
 				<img
-					src={`https://image.tmdb.org/t/p/original${poster_path}`}
+					src={
+						poster_path
+							? `https://image.tmdb.org/t/p/original${poster_path}`
+							: defaultImage
+					}
 					alt={title ?? name}
 					tittle={title ?? name}
 				/>
@@ -104,7 +111,6 @@ const TitularInfo = ({
 				</div>
 
 				<div className='video'>
-					{/* using the 'find' method to get first value at the top */}
 					{video ? (
 						<iframe
 							src={`https://www.youtube.com/embed/${video.key}`}

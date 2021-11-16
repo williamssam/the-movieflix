@@ -25,6 +25,7 @@ const CastMovies = ({ combined_credits: { cast } }) => {
 											}
 											alt={title ?? name}
 											title={title ?? name}
+											loading='lazy'
 										/>
 										{release_date ? (
 											<span>

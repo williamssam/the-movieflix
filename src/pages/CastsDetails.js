@@ -11,7 +11,6 @@ const Casts = () => {
 	const { id } = useParams()
 	const url = `https://api.themoviedb.org/3/person/${id}?api_key=${apiKey}&language=en-US&append_to_response=combined_credits,external_ids`
 	const { data, error } = useSWR(url)
-	console.log(data)
 
 	if (!data) return <Loader />
 	if (error) return <Error />

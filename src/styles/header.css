@@ -1,20 +1,29 @@
 .header {
-	padding: 1.2rem 3rem;
+	padding: 0.75rem 3rem;
 	position: fixed;
 	top: 0;
 	width: 100%;
 	z-index: 999;
 	background: transparent;
-	box-shadow: 0 2.3px 2.2px rgba(129, 129, 129, 0.011),
-		0 5.5px 5.3px rgba(0, 0, 0, 0.016), 0 10.3px 10px rgba(0, 0, 0, 0.02),
-		0 18.3px 17.9px rgba(0, 0, 0, 0.024), 0 34.3px 33.4px rgba(0, 0, 0, 0.029),
-		0 82px 80px rgba(0, 0, 0, 0.04);
+
 	color: #fff;
+	transition: all 0.3s ease-in-out;
 }
 
 .header.selected {
 	background: #fff;
 	color: var(--text-clr);
+}
+
+.small {
+	background: #fff;
+	color: var(--bg-clr);
+	box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
+		6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
+		12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
+		22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
+		41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
+		100px 100px 80px rgba(0, 0, 0, 0.07);
 }
 
 .header .container {
@@ -79,6 +88,11 @@
 	padding: 0.3rem 0.7rem;
 	border-radius: var(--border-radius);
 }
+
+/* .small .nav-list li a.active {
+	background: #fff;
+	color: var(--bg-clr);
+} */
 .nav-list li a.active::after {
 	all: unset;
 }

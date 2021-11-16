@@ -1,6 +1,6 @@
-import { formatTime } from 'misc/formatTime'
-import { getDateName } from 'misc/getDateName'
-import { getLanguageName } from 'misc/getLanguageName'
+import { formatTime } from 'utils/formatTime'
+import { getDateName } from 'utils/getDateName'
+import { getLanguageName } from 'utils/getLanguageName'
 
 const Status = ({
 	status,
@@ -23,11 +23,11 @@ const Status = ({
 }) => {
 	return (
 		<section
-			class='status'
+			className='status'
 			style={{
 				background: `linear-gradient(#080705, #080705), url('https://image.tmdb.org/t/p/original${backdrop_path}') no-repeat center/cover`,
 			}}>
-			<div class='container'>
+			<div className='container'>
 				{status ? (
 					<div>
 						<p>Staus</p>

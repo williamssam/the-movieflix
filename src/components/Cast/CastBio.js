@@ -1,5 +1,5 @@
-import { getDateName } from 'misc/getDateName'
-import { getGender } from 'misc/getGender'
+import { getDateName } from 'utils/getDateName'
+import { getGender } from 'utils/getGender'
 
 const CastBio = ({
 	biography,
