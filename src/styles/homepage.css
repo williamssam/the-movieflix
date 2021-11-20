@@ -4,6 +4,7 @@
 .home {
 	background: linear-gradient(transparent, black),
 		url('../assets/homepage-img.png') no-repeat center/cover;
+	background-attachment: fixed;
 	/* background-blend-mode: color-dodge; */
 	height: 50vh;
 	color: #fff;

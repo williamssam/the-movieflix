@@ -5,6 +5,9 @@ import defaultImage from 'assets/default-image.jpg'
 import InifiniteLoader from 'components/InfiniteLoader'
 import { Link } from 'react-router-dom'
 
+/*
+	Renders the search form and the searched data
+**/
 const Search = () => {
 	const [searchQuery, setSearchQuery] = useState('')
 
@@ -15,9 +18,6 @@ const Search = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault()
 	}
-
-	// if (!data) return <h3>Loading....</h3>
-	console.log(data)
 
 	return (
 		<>

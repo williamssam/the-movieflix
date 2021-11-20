@@ -1,5 +1,11 @@
 import defaultImage from 'assets/default-image.jpg'
+import { useAuth } from 'hooks/useAuth'
+import { AiOutlineLink } from 'react-icons/ai'
+import { ToastContainer, toast } from 'react-toastify'
 
+/*
+	Renders the individual movie/tvshow poster image, trailervideo and othe rimportant info
+**/
 const TitularInfo = ({
 	poster_path,
 	title,
@@ -12,7 +18,9 @@ const TitularInfo = ({
 	credits,
 	created_by,
 	videos,
+	homepage,
 }) => {
+	const { currentUser } = useAuth()
 	const video = videos.results.find(({ type }) => type === 'Trailer')
 
 	return (
@@ -31,7 +39,12 @@ const TitularInfo = ({
 				<div className='details'>
 					<div className='detail'>
 						<div>
-							<h2>{title ?? name}</h2>
+							<h2>
+								<a href={homepage} target='_blank' rel='noreferrer'>
+									{title ?? name}{' '}
+									<AiOutlineLink className='link-icon' />
+								</a>
+							</h2>
 							<div className='tag'>
 								{release_date ? (
 									<p className='year'>{release_date.slice(0, 4)}</p>
@@ -54,7 +67,13 @@ const TitularInfo = ({
 						) : null}
 					</div>
 
-					<button className='add-btn'>
+					<button
+						className='add-btn'
+						disabled={currentUser ? false : true}
+						onClick={() => {
+							console.log('added')
+							toast.info(`${title ?? name} added to your list 👍`)
+						}}>
 						<svg
 							xmlns='http://www.w3.org/2000/svg'
 							width='16'
@@ -65,7 +84,11 @@ const TitularInfo = ({
 							<path d='M16.999 23V7c0-1.103-.897-2-2-2h-8c-1.103 0-2 .897-2 2v16l6-3.601 6 3.601z'></path>
 							<path d='M15.585 3h1.414c1.103 0 2 .897 2 2v10.443l2 2.489V3c0-1.103-.897-2-2-2h-8c-1.103 0-2 .897-2 2h6.586z'></path>
 						</svg>
-						<span>Add to wishlist</span>
+						<span>
+							{currentUser
+								? 'Add to wishlist'
+								: 'Login in to add to watchlist'}
+						</span>
 					</button>
 
 					<div className='story'>
@@ -122,6 +145,18 @@ const TitularInfo = ({
 					) : null}
 				</div>
 			</div>
+			<ToastContainer
+				position='bottom-center'
+				autoClose={5000}
+				hideProgressBar={false}
+				newestOnTop
+				closeOnClick
+				rtl={false}
+				pauseOnFocusLoss
+				draggable
+				pauseOnHover
+				theme='colored'
+			/>
 		</section>
 	)
 }

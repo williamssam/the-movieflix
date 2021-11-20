@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom'
 import { SWRConfig } from 'swr'
 import App from './App'
 import './index.css'
-
+import AuthContextProvider from 'context/AuthContext'
+// fetch function used by useSWR
 const fetcher = async (...args) => {
 	const res = await fetch(...args)
 
@@ -20,9 +21,13 @@ const fetcher = async (...args) => {
 
 ReactDOM.render(
 	<React.StrictMode>
-		<SWRConfig value={{ fetcher }}>
-			<App />
-		</SWRConfig>
+		<AuthContextProvider>
+			<SWRConfig value={{ fetcher }}>
+				<App />
+			</SWRConfig>
+		</AuthContextProvider>
 	</React.StrictMode>,
 	document.getElementById('root')
 )
+
+//  80850895832942170

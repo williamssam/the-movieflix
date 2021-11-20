@@ -10,12 +10,18 @@ import SimilarTvShows from 'components/TvShows/SimilarTvShows'
 
 import 'styles/movie-details.css'
 import Seasons from 'components/TvShows/Seasons'
+
+/*
+	Individual tvshows details page
+*/
 const TvShowsDetails = () => {
 	const { id } = useParams()
 	const { data, error } = useRequest(id, '/tv')
 
 	if (!data) return <Loader />
 	if (error) return <Error />
+
+	console.log(data)
 
 	return (
 		<main className='movie-details'>

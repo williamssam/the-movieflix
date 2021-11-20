@@ -41,6 +41,27 @@
 	object-fit: cover;
 }
 
+.titular-info a {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	transition: opacity 300ms ease-in-out;
+}
+
+.titular-info a:hover {
+	opacity: 0.8;
+}
+
+.link-icon {
+	font-size: 1.6rem;
+	opacity: 0;
+	transition: opacity 275ms ease;
+}
+
+.titular-info a:hover .link-icon {
+	opacity: 1;
+}
+
 /* video section (trailer) */
 .video {
 	background: #000;
@@ -75,6 +96,16 @@
 	gap: 1rem;
 	border-radius: var(--border-radius);
 	margin-top: 1rem;
+}
+
+.add-btn:disabled {
+	background: #eee;
+	color: #b6b4b4;
+	cursor: no-drop;
+}
+
+.add-btn:disabled:active {
+	transform: scale(1);
 }
 
 .add-btn:active {

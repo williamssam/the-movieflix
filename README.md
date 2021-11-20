@@ -9,6 +9,7 @@
 
 -  useSwr: hook used for easy data fetching. handles error and loading state, caches and dedouple, i.e fetches data once and uses it everywhere you need it, data. If you can api request, useSWR first shows the cached data before trying to fetching the updated data. So there's always data for you to show to the user.
 -  react-router-dom
+-  Context API - for state management
 -  react-spring: for animation
 -  Firebase: for authentication (signin/signout), authorization, and firestore for databse management
 

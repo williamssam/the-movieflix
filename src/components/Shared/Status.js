@@ -2,13 +2,15 @@ import { formatTime } from 'utils/formatTime'
 import { getDateName } from 'utils/getDateName'
 import { getLanguageName } from 'utils/getLanguageName'
 
+/*
+	Renders the individual movie/tvshow other data
+**/
 const Status = ({
 	status,
 	budget,
 	revenue,
 	production_companies,
 	production_countries,
-	homepage,
 	original_language,
 	release_date,
 	runtime,
@@ -86,7 +88,7 @@ const Status = ({
 
 				{number_of_seasons ? (
 					<div>
-						<p>Season</p>
+						<p>Season(s)</p>
 						<p>
 							{number_of_seasons} / {number_of_episodes}ep
 						</p>
@@ -128,14 +130,14 @@ const Status = ({
 					</div>
 				) : null}
 
-				{homepage ? (
+				{/* {homepage ? (
 					<div>
 						<p>Homepage</p>
 						<a href={homepage} target='_blank' rel='noreferrer'>
 							Movie Homepage
 						</a>
 					</div>
-				) : null}
+				) : null} */}
 			</div>
 		</section>
 	)

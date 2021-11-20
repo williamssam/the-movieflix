@@ -2,20 +2,32 @@ footer {
 	background: var(--bg-clr);
 	color: #fff;
 	width: 100%;
-	margin-top: 3rem;
+	/* margin-top: 3rem; */
+	padding: 0.75rem 3rem;
 }
 
 footer .container {
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-between;
 	gap: 2rem;
 
 	font-size: 1.3rem;
 }
 
+.footer-twitter {
+	font-size: 1.15rem;
+}
+
 footer a {
 	text-decoration: underline;
+}
+
+footer ul {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem 3rem;
 }
 
 .circle {

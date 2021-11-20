@@ -1,5 +1,8 @@
 import '../styles/infinite-loader.css'
 
+/*
+	infinite loader animation
+**/
 const InifiniteLoader = () => {
 	return (
 		<div className='ellipsis'>

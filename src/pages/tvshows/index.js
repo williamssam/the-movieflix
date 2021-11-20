@@ -22,6 +22,7 @@ const TvShows = () => {
 		'/tv',
 		selectedValue
 	)
+
 	useEffect(() => {
 		if (inView) {
 			setSize(size + 1)
@@ -44,7 +45,7 @@ const TvShows = () => {
 					</div>
 
 					<FetchResult movies={movies} error={error}>
-						<h2 className='overall-title'>{selectedValue} Movies</h2>
+						<h2 className='overall-title'>{selectedValue} TvShows</h2>
 						{movies.map((movie, index) => (
 							<Series key={index} data={movie} />
 						))}

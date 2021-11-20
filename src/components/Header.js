@@ -1,16 +1,23 @@
 import { useEffect, useState } from 'react'
-import { BiCarousel, BiLogInCircle } from 'react-icons/bi'
 import { Link, NavLink } from 'react-router-dom'
 import '../styles/header.css'
+import { useAuth } from 'hooks/useAuth'
+import { logoutUser } from 'services/auth-service'
+import avatar from 'assets/avatar.jpg'
 
+/*
+	the website header
+**/
 const Header = () => {
 	const [small, setSmall] = useState(false)
+	const { currentUser } = useAuth()
 
 	useEffect(() => {
 		window.addEventListener('scroll', () =>
 			setSmall(window.pageYOffset > 300)
 		)
 	}, [])
+
 	return (
 		<header className={`header ${small ? 'small' : ''}`}>
 			<div className='container'>
@@ -60,35 +67,56 @@ const Header = () => {
 								<span>series</span>
 							</NavLink>
 						</li>
-
-						<li>
-							<NavLink activeClassName='active' to='/watchlist'>
-								<svg
-									xmlns='http://www.w3.org/2000/svg'
-									width='16'
-									height='16'
-									viewBox='0 0 24 24'
-									fill='currentColor'>
-									<path d='M16.999 23V7c0-1.103-.897-2-2-2h-8c-1.103 0-2 .897-2 2v16l6-3.601 6 3.601z'></path>
-									<path d='M15.585 3h1.414c1.103 0 2 .897 2 2v10.443l2 2.489V3c0-1.103-.897-2-2-2h-8c-1.103 0-2 .897-2 2h6.586z'></path>
-								</svg>
-								<span>my watchlist</span>
-							</NavLink>
-						</li>
+						{currentUser && (
+							<li>
+								<NavLink activeClassName='active' to='/watchlist'>
+									<svg
+										xmlns='http://www.w3.org/2000/svg'
+										width='16'
+										height='16'
+										viewBox='0 0 24 24'
+										fill='currentColor'>
+										<path d='M16.999 23V7c0-1.103-.897-2-2-2h-8c-1.103 0-2 .897-2 2v16l6-3.601 6 3.601z'></path>
+										<path d='M15.585 3h1.414c1.103 0 2 .897 2 2v10.443l2 2.489V3c0-1.103-.897-2-2-2h-8c-1.103 0-2 .897-2 2h6.586z'></path>
+									</svg>
+									<span>my watchlist</span>
+								</NavLink>
+							</li>
+						)}
 					</ul>
 				</nav>
 
-				<div className='btn-container'>
-					<button className='btn log-in'>
-						<BiLogInCircle />
-						<span>log in</span>
-					</button>
+				<ul className='btn-container'>
+					{!currentUser && (
+						<li>
+							<Link to='/login' className='btn log-in'>
+								<span>Login</span>
+							</Link>
+						</li>
+					)}
 
-					<button className='btn sign-up'>
-						<BiCarousel />
-						<span>sign up</span>
-					</button>
-				</div>
+					{!currentUser && (
+						<li>
+							<Link to='/signup' className='btn sign-up'>
+								<span>Register</span>
+							</Link>
+						</li>
+					)}
+
+					{currentUser && (
+						<li>
+							<button className='btn sign-up' onClick={logoutUser}>
+								<span>Log out</span>
+							</button>
+						</li>
+					)}
+
+					{currentUser && (
+						<li>
+							<img src={avatar} alt='popcorn' class='avatar' />
+						</li>
+					)}
+				</ul>
 
 				<button className='hamburger close'>
 					<div></div>

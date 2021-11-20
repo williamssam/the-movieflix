@@ -16,11 +16,10 @@ const Casts = ({ credits: { cast } }) => {
 										id,
 										original_name,
 										name,
-										cast_id,
 										character,
 										profile_path,
 									}) => (
-										<article key={cast_id}>
+										<article key={id}>
 											<Link to={`/cast/${id}`}>
 												<img
 													src={
