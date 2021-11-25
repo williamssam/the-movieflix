@@ -12,7 +12,9 @@ const Search = () => {
 	const [searchQuery, setSearchQuery] = useState('')
 
 	const { data } = useSWR(
-		`https://api.themoviedb.org/3/search/multi?api_key=54b94c812ae977596ee0eec873960261&query=${searchQuery}`
+		`https://api.themoviedb.org/3/search/multi?api_key=54b94c812ae977596ee0eec873960261&query=${
+			searchQuery && searchQuery
+		}`
 	)
 
 	const handleSubmit = (e) => {
@@ -43,6 +45,7 @@ const Search = () => {
 						placeholder='Search the/movieflix'
 						value={searchQuery}
 						onChange={(e) => setSearchQuery(e.target.value)}
+						enterKeyHint='search'
 					/>
 				</div>
 

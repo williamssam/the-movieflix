@@ -1,0 +1,20 @@
+.watchlist {
+	margin-top: 5rem;
+	padding: 3rem;
+}
+
+.list {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+@media screen and (max-width: 680px) {
+	.watchlist {
+		padding: 3rem 1rem;
+	}
+
+	.watchlist .overall-title {
+		font-size: 1.5rem;
+	}
+}

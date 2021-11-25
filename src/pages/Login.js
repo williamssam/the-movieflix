@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import '../styles/login.css'
 import { useForm } from 'react-hook-form'
 import { loginUser, loginUserWithGoogle } from 'services/auth-service'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useLocation } from 'react-router-dom'
 import { useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.min.css'
@@ -20,19 +20,20 @@ const Login = () => {
 	const [isSubmitting, setIsSubmitting] = useState(false)
 	const { register, handleSubmit } = useForm()
 	const history = useHistory()
+	const location = useLocation()
 
 	// log user in
 	const onSubmit = (data) => {
 		setIsSubmitting(true)
 		loginUser(data.email, data.password)
 			.then((response) => {
-				console.log(response)
 				toast.success('Login successful! 🚀')
 				setIsSubmitting(false)
-				history.push('/')
+
+				// send user to the previous page before login
+				history.push(location?.state?.from?.pathname)
 			})
 			.catch((err) => {
-				console.log(err)
 				toast.error(err.message)
 				setIsSubmitting(false)
 			})
@@ -40,7 +41,7 @@ const Login = () => {
 
 	const handleLoginWithGoogle = () => {
 		loginUserWithGoogle()
-			.then(() => history.push('/'))
+			.then(() => history.push(location?.state?.from?.pathname))
 			.catch((err) => console.log(err.message))
 	}
 

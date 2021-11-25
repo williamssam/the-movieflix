@@ -8,7 +8,7 @@ const RecommendedMovies = ({ recommendations: { results } }) => {
 			<div className='container'>
 				<h2>You should also watch</h2>
 
-				<div className='recommend'>
+				<div className='movies'>
 					{results
 						.slice(0, 18)
 						.map(
@@ -34,7 +34,9 @@ const RecommendedMovies = ({ recommendations: { results } }) => {
 									</Link>
 
 									<div className='movie-info'>
-										<h3>{title ?? name}</h3>
+										<Link to={`/movie/${id}`}>
+											<h3>{title ?? name}</h3>
+										</Link>
 										<div className='movie-other-info'>
 											{release_date ? (
 												<p className='movie-type'>

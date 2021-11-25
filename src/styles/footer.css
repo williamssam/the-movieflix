@@ -1,6 +1,6 @@
 footer {
 	background: var(--bg-clr);
-	color: #fff;
+	color: var(--white);
 	width: 100%;
 	/* margin-top: 3rem; */
 	padding: 0.75rem 3rem;
@@ -27,6 +27,7 @@ footer a {
 footer ul {
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
 	gap: 0.5rem 3rem;
 }
 
@@ -41,5 +42,6 @@ footer ul {
 	footer .container {
 		text-align: center;
 		padding: 0.5rem 0.8rem;
+		justify-content: center;
 	}
 }

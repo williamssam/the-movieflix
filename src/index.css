@@ -1,16 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;900&display=swap');
 
 :root {
-	--good-rating-clr: #029602;
-	--bad-rating-clr: red;
-	--average-rating-clr: orange;
+	/* shadow generated from: https://www.joshwcomeau.com/shadow-palette/ */
+	--shadow-color: 0deg 0% 76%;
+	--shadow-elevation-high: 0.1px 0.3px 0.3px hsl(var(--shadow-color) / 0.27),
+		0.5px 1.2px 1.4px -0.4px hsl(var(--shadow-color) / 0.26),
+		1px 2.1px 2.5px -0.8px hsl(var(--shadow-color) / 0.25),
+		1.7px 3.5px 4.1px -1.3px hsl(var(--shadow-color) / 0.24),
+		2.7px 5.8px 6.8px -1.7px hsl(var(--shadow-color) / 0.23),
+		4.4px 9.2px 10.8px -2.1px hsl(var(--shadow-color) / 0.22),
+		6.7px 14.2px 16.6px -2.5px hsl(var(--shadow-color) / 0.21),
+		10px 21.1px 24.7px -2.9px hsl(var(--shadow-color) / 0.2);
+	--good-rating-clr: hsl(120, 97%, 30%);
+	--bad-rating-clr: hsl(0, 100%, 50%);
+	--average-rating-clr: hsl(39, 100%, 50%);
 
-	--select-border: #777;
-	--select-focus: blue;
-	--text-clr: #001514;
-	--bg-clr: #12151f;
+	--text-clr: hsl(0, 0%, 10%);
+	--bg-clr: hsl(225, 17%, 9%);
+	--secondary-clr: hsl(218, 13%, 64%);
+	--tertiary-clr: hsl(228, 100%, 98%);
+	--white: hsl(0, 0%, 95%);
+	--accent-clr: hsl(275, 100%, 25%);
+	--select-border: var(--secondary-clr);
 	--select-arrow: var(--select-border);
-	--border-radius: 6px;
+	--border-radius: 5px;
 }
 
 html {
@@ -29,7 +42,6 @@ html {
 }
 
 select {
-	/* all: revert; */
 	font: inherit;
 }
 
@@ -92,14 +104,24 @@ a {
 }
 
 body {
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Outfit', sans-serif;
 	font-size: clamp(1.3rem, 1.5vw, 1.6rem);
 	line-height: 1.6;
-	font-weight: 600;
+	/* font-weight: 600; */
 	position: relative;
 	overflow-x: hidden;
 
 	color: var(--text-clr);
+}
+
+#root {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+footer {
+	margin-top: auto;
 }
 
 /**************************
@@ -113,10 +135,6 @@ body {
 
 button:hover {
 	opacity: 0.8;
-}
-
-.hamburger {
-	display: none;
 }
 
 /* rating color scheme */

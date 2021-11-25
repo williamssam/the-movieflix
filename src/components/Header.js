@@ -1,33 +1,35 @@
-import { useEffect, useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import '../styles/header.css'
 import { useAuth } from 'hooks/useAuth'
 import { logoutUser } from 'services/auth-service'
+import { CgMenuHotdog } from 'react-icons/cg'
+import { MdOutlineRestaurantMenu } from 'react-icons/md'
 import avatar from 'assets/avatar.jpg'
+import { useState } from 'react'
+// import { motion } from 'framer-motion'
 
 /*
 	the website header
 **/
 const Header = () => {
-	const [small, setSmall] = useState(false)
+	const [open, setOpen] = useState(false)
 	const { currentUser } = useAuth()
-
-	useEffect(() => {
-		window.addEventListener('scroll', () =>
-			setSmall(window.pageYOffset > 300)
-		)
-	}, [])
+	const location = useLocation()
 
 	return (
-		<header className={`header ${small ? 'small' : ''}`}>
+		<header className='header'>
 			<div className='container'>
 				<h1 className='logo'>
 					<Link to='/'> the/MovieFlix </Link>
 				</h1>
-				<nav className='nav'>
+				<nav className={`nav ${open ? 'open' : ''}`}>
 					<ul className='nav-list'>
 						<li>
-							<NavLink exact activeClassName='active' to='/'>
+							<NavLink
+								exact
+								activeClassName='active'
+								to='/'
+								onClick={() => setOpen(!open)}>
 								<svg
 									xmlns='http://www.w3.org/2000/svg'
 									width='16'
@@ -41,7 +43,10 @@ const Header = () => {
 						</li>
 
 						<li>
-							<NavLink activeClassName='active' to='/movies'>
+							<NavLink
+								activeClassName='active'
+								to='/movies'
+								onClick={() => setOpen(!open)}>
 								<svg
 									xmlns='http://www.w3.org/2000/svg'
 									width='16'
@@ -55,7 +60,10 @@ const Header = () => {
 						</li>
 
 						<li>
-							<NavLink activeClassName='active' to='/tvshows'>
+							<NavLink
+								activeClassName='active'
+								to='/tvshows'
+								onClick={() => setOpen(!open)}>
 								<svg
 									xmlns='http://www.w3.org/2000/svg'
 									width='16'
@@ -69,7 +77,10 @@ const Header = () => {
 						</li>
 						{currentUser && (
 							<li>
-								<NavLink activeClassName='active' to='/watchlist'>
+								<NavLink
+									activeClassName='active'
+									to='/watchlist'
+									onClick={() => setOpen(!open)}>
 									<svg
 										xmlns='http://www.w3.org/2000/svg'
 										width='16'
@@ -79,32 +90,38 @@ const Header = () => {
 										<path d='M16.999 23V7c0-1.103-.897-2-2-2h-8c-1.103 0-2 .897-2 2v16l6-3.601 6 3.601z'></path>
 										<path d='M15.585 3h1.414c1.103 0 2 .897 2 2v10.443l2 2.489V3c0-1.103-.897-2-2-2h-8c-1.103 0-2 .897-2 2h6.586z'></path>
 									</svg>
-									<span>my watchlist</span>
+									<span>watchlist</span>
 								</NavLink>
 							</li>
 						)}
 					</ul>
 				</nav>
 
-				<ul className='btn-container'>
+				<ul className={`btn-container ${open ? 'open' : ''}`}>
 					{!currentUser && (
 						<li>
-							<Link to='/login' className='btn log-in'>
+							<NavLink
+								to={{ pathname: '/login', state: { from: location } }}
+								className='btn log-in'
+								onClick={() => setOpen(!open)}>
 								<span>Login</span>
-							</Link>
+							</NavLink>
 						</li>
 					)}
 
 					{!currentUser && (
 						<li>
-							<Link to='/signup' className='btn sign-up'>
+							<NavLink
+								to='/signup'
+								className='btn sign-up'
+								onClick={() => setOpen(!open)}>
 								<span>Register</span>
-							</Link>
+							</NavLink>
 						</li>
 					)}
 
 					{currentUser && (
-						<li>
+						<li onClick={() => setOpen(!open)}>
 							<button className='btn sign-up' onClick={logoutUser}>
 								<span>Log out</span>
 							</button>
@@ -113,16 +130,18 @@ const Header = () => {
 
 					{currentUser && (
 						<li>
-							<img src={avatar} alt='popcorn' class='avatar' />
+							<img src={avatar} alt='popcorn' className='avatar' />
 						</li>
 					)}
 				</ul>
 
-				<button className='hamburger close'>
-					<div></div>
-					<div></div>
-					<div></div>
-				</button>
+				<div className='hamburger' onClick={() => setOpen(!open)}>
+					{!open ? (
+						<CgMenuHotdog style={{ fontSize: '25px' }} />
+					) : (
+						<MdOutlineRestaurantMenu style={{ fontSize: '25px' }} />
+					)}
+				</div>
 			</div>
 		</header>
 	)

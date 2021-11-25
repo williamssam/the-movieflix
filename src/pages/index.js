@@ -3,6 +3,7 @@ import Search from 'components/Shared/Search'
 import Series from 'components/TvShows/Series'
 import Error from 'components/Error'
 import useSWR from 'swr'
+import Loader from 'components/Loader'
 const apiKey = process.env.REACT_APP_API_KEY
 
 const Home = () => {
@@ -13,9 +14,6 @@ const Home = () => {
 	const { data: tvshows } = useSWR(
 		`https://api.themoviedb.org/3/trending/tv/day?api_key=${apiKey}`
 	)
-
-	if (!movies) return <h2>Loading...</h2>
-	if (error) return <Error />
 
 	return (
 		<main>
@@ -33,6 +31,8 @@ const Home = () => {
 				</div>
 			</article>
 
+			{!movies && <Loader />}
+			{error && <Error />}
 			<section className='section'>
 				<div className='container'>
 					<div>

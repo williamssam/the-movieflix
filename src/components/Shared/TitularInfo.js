@@ -1,7 +1,7 @@
 import defaultImage from 'assets/default-image.jpg'
-import { useAuth } from 'hooks/useAuth'
+import AddWatchListBtn from 'components/AddWatchlistBtn'
 import { AiOutlineLink } from 'react-icons/ai'
-import { ToastContainer, toast } from 'react-toastify'
+import { ToastContainer } from 'react-toastify'
 
 /*
 	Renders the individual movie/tvshow poster image, trailervideo and othe rimportant info
@@ -19,8 +19,8 @@ const TitularInfo = ({
 	created_by,
 	videos,
 	homepage,
+	id,
 }) => {
-	const { currentUser } = useAuth()
 	const video = videos.results.find(({ type }) => type === 'Trailer')
 
 	return (
@@ -41,7 +41,7 @@ const TitularInfo = ({
 						<div>
 							<h2>
 								<a href={homepage} target='_blank' rel='noreferrer'>
-									{title ?? name}{' '}
+									<span>{title ?? name}</span>{' '}
 									<AiOutlineLink className='link-icon' />
 								</a>
 							</h2>
@@ -67,29 +67,13 @@ const TitularInfo = ({
 						) : null}
 					</div>
 
-					<button
-						className='add-btn'
-						disabled={currentUser ? false : true}
-						onClick={() => {
-							console.log('added')
-							toast.info(`${title ?? name} added to your list 👍`)
-						}}>
-						<svg
-							xmlns='http://www.w3.org/2000/svg'
-							width='16'
-							height='16'
-							viewBox='0 0 24 24'
-							fill='currentColor'
-							title='bookmark'>
-							<path d='M16.999 23V7c0-1.103-.897-2-2-2h-8c-1.103 0-2 .897-2 2v16l6-3.601 6 3.601z'></path>
-							<path d='M15.585 3h1.414c1.103 0 2 .897 2 2v10.443l2 2.489V3c0-1.103-.897-2-2-2h-8c-1.103 0-2 .897-2 2h6.586z'></path>
-						</svg>
-						<span>
-							{currentUser
-								? 'Add to wishlist'
-								: 'Login in to add to watchlist'}
-						</span>
-					</button>
+					<AddWatchListBtn
+						title={title}
+						name={name}
+						id={id}
+						vote_average={vote_average}
+						poster_path={poster_path}
+					/>
 
 					<div className='story'>
 						{tagline ? <p className='tagline'>{tagline}</p> : null}

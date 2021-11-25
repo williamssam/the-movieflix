@@ -37,7 +37,7 @@ const Casts = ({ credits: { cast } }) => {
 														<p>{original_name ?? name}</p>
 													) : null}
 													{character ? <p>{character}</p> : null}
-													{/* <p>2 episode</p>*/}
+													{/* <p>2 episode</p> */}
 												</div>
 											</Link>
 										</article>

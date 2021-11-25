@@ -6,10 +6,13 @@ const Footer = () => {
 			<div className='container'>
 				<div>
 					<p>
-						Created by <a href='#'>Williams Samuel</a>.
+						Created by{' '}
+						<a href='https://williamssam.netlify.app'>Williams Samuel</a>.
 					</p>
 					<p className='footer-twitter'>
-						Follow me on <a href='#'>twitter</a> for more.
+						Follow me on{' '}
+						<a href='https://twitter.com/williams_codes'>twitter</a> for
+						more.
 					</p>
 				</div>
 

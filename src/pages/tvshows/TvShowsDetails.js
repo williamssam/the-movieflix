@@ -21,8 +21,6 @@ const TvShowsDetails = () => {
 	if (!data) return <Loader />
 	if (error) return <Error />
 
-	console.log(data)
-
 	return (
 		<main className='movie-details'>
 			<div
@@ -34,8 +32,8 @@ const TvShowsDetails = () => {
 			<section className='info'>
 				<TitularInfo {...data} />
 				<Status {...data} />
-				<Casts {...data} />
 				<Seasons {...data} />
+				<Casts {...data} />
 				<RecommendedTvShows {...data} />
 				<SimilarTvShows {...data} />
 			</section>

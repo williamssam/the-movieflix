@@ -1,11 +1,16 @@
 import defaultImage from 'assets/default-image.jpg'
+import { Link } from 'react-router-dom'
 
+/*
+	Renders the actors movies/tv shows
+**/
 const CastMovies = ({ combined_credits: { cast } }) => {
 	return (
 		<section className='cast-movies'>
 			<div className='container'>
 				<h2>Known movies/tv series</h2>
-				<div className='cast-movie'>
+
+				<section className='movies'>
 					{cast
 						? cast.map(
 								({
@@ -15,29 +20,48 @@ const CastMovies = ({ combined_credits: { cast } }) => {
 									character,
 									release_date,
 									id,
+									media_type,
 								}) => (
 									<article key={id}>
-										<img
-											src={
-												poster_path
-													? `https://image.tmdb.org/t/p/original${poster_path}`
-													: defaultImage
-											}
-											alt={title ?? name}
-											title={title ?? name}
-											loading='lazy'
-										/>
-										{release_date ? (
-											<span>
-												as {character} - (
-												{`${release_date}`.slice(0, 4)})
-											</span>
-										) : null}
+										<Link
+											to={
+												media_type === 'movie'
+													? `${`/movie/${id}`}`
+													: `${`/tvshow/${id}`}`
+											}>
+											<img
+												src={
+													poster_path
+														? `https://image.tmdb.org/t/p/original${poster_path}`
+														: defaultImage
+												}
+												alt={title ?? name}
+												title={title ?? name}
+												loading='lazy'
+											/>
+
+											<div className='movie-info'>
+												<Link to={`/movie/${id}`}>
+													<h3>{title ?? name}</h3>
+												</Link>
+												<div className='movie-other-info'>
+													{character ? (
+														<p>as {character}</p>
+													) : null}
+													{release_date ? (
+														<p className='movie-type'>
+															{' '}
+															{release_date.slice(0, 4)}
+														</p>
+													) : null}
+												</div>
+											</div>
+										</Link>
 									</article>
 								)
 						  )
 						: null}
-				</div>
+				</section>
 			</div>
 		</section>
 	)

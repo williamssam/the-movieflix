@@ -1,29 +1,24 @@
 .header {
 	padding: 0.75rem 3rem;
-	position: fixed;
-	top: 0;
-	width: 100%;
-	z-index: 999;
-	background: transparent;
+	background: linear-gradient(
+		90deg,
+		#232323,
+		#232323,
+		#222222,
+		#222222,
+		#222222,
+		#222222,
+		#212121,
+		#212121
+	);
 
-	color: #fff;
+	color: var(--white);
 	transition: all 0.3s ease-in-out;
 }
 
 .header.selected {
-	background: #fff;
+	background: var(--white);
 	color: var(--text-clr);
-}
-
-.small {
-	background: #eee;
-	color: var(--bg-clr);
-	box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
-		6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
-		12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
-		22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
-		41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
-		100px 100px 80px rgba(0, 0, 0, 0.07);
 }
 
 .header .container {
@@ -34,8 +29,7 @@
 }
 
 .logo {
-	text-transform: uppercase;
-	letter-spacing: 2px;
+	letter-spacing: 1px;
 	font-weight: 900;
 }
 
@@ -71,7 +65,7 @@
 	width: 100%;
 	height: 2px;
 	bottom: 0;
-	background: #fff;
+	background: var(--white);
 	transform: scale(0);
 	transform-origin: left;
 	transition: all 300ms ease-in-out;
@@ -83,16 +77,12 @@
 }
 
 .nav-list li a.active {
-	background: var(--bg-clr);
-	color: #fff;
+	background: var(--accent-clr);
+	color: var(--white);
 	padding: 0.3rem 0.7rem;
 	border-radius: var(--border-radius);
 }
 
-/* .small .nav-list li a.active {
-	background: #fff;
-	color: var(--bg-clr);
-} */
 .nav-list li a.active::after {
 	all: unset;
 }
@@ -102,9 +92,6 @@
 	display: flex;
 	align-items: center;
 	gap: 1rem;
-
-	--logout-clr: #490606;
-	--signup-clr: #084906;
 }
 
 .btn {
@@ -114,13 +101,15 @@
 	text-transform: capitalize;
 	letter-spacing: 0.5px;
 	padding: 0.5rem 2rem;
-	color: #fff;
+	border: 2px solid var(--white);
+	color: var(--white);
 	border-radius: var(--border-radius);
-	transition: opacity 300ms ease-in-out;
+	transition: all 300ms ease-in-out;
 }
 
 .btn:hover {
-	opacity: 0.9;
+	background: var(--white);
+	color: var(--text-clr);
 }
 
 .avatar {
@@ -129,15 +118,8 @@
 	object-fit: cover;
 	border-radius: 50%;
 }
-
-.btn.log-in {
-	background: var(--bg-clr);
-}
-.btn.log-out {
-	background: var(--logout-clr);
-}
-.btn.sign-up {
-	background: var(--signup-clr);
+.hamburger {
+	display: none;
 }
 
 @media screen and (max-width: 640px) {
@@ -147,51 +129,34 @@
 	}
 
 	.hamburger {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
-
-	.hamburger div {
-		width: 30px;
-		height: 2px;
-		background: #fff;
-		margin-top: 5px;
-		transition: all 300ms ease-in-out;
-	}
-
-	.hamburger div:first-child {
-		width: 15px;
-	}
-
-	.hamburger:hover div:first-child {
-		width: 30px;
-	}
-
-	.hamburger div:last-child {
-		width: 15px;
-	}
-
-	.hamburger:hover div:last-child {
-		width: 30px;
+		display: block;
+		color: var(--white);
+		line-height: 0;
 	}
 
 	.nav {
 		all: unset;
-		/* width: 40%; */
+		width: 300px;
 		position: absolute;
 		top: 4rem;
-		right: 1rem;
+		right: 1.75rem;
 		padding: 2rem;
-		font-size: 1.4rem;
-		background: #fff;
+		background: var(--white);
 		color: var(--bg-clr);
-		/* border-radius: var(--border-radius); */
-
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		gap: 1.5rem;
+		z-index: 999;
+		box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.006),
+			6.7px 6.7px 5.3px rgba(0, 0, 0, 0.008),
+			12.5px 12.5px 10px rgba(0, 0, 0, 0.01),
+			22.3px 22.3px 17.9px rgba(0, 0, 0, 0.012),
+			41.8px 41.8px 33.4px rgba(0, 0, 0, 0.014),
+			100px 100px 80px rgba(0, 0, 0, 0.02);
+
+		transform: translateY(-1000px);
+		transition: transform 200ms ease-in-out;
 	}
 
 	.nav-list {
@@ -205,14 +170,20 @@
 	}
 
 	.btn-container {
+		width: 340px;
 		padding: 1rem 2rem;
-		padding-top: 3rem;
-		padding-bottom: 1.5rem;
 		position: absolute;
-		right: 1rem;
-		top: 15rem;
-		flex-direction: column;
-		background: #fff;
+		right: 1.75rem;
+		top: 23rem;
+		justify-content: space-between;
+		background: var(--accent-clr);
+		z-index: 999;
+		transform: translateY(-1000px);
+		transition: transform 200ms ease-in-out;
+	}
+
+	.open {
+		transform: translateY(0);
 	}
 
 	.btn-container .btn {

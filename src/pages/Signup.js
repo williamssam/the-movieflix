@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import '../styles/login.css'
 import { useForm } from 'react-hook-form'
 import { registerUser, loginUserWithGoogle } from 'services/auth-service'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useLocation } from 'react-router-dom'
 import { useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify'
 import { css } from '@emotion/react'
@@ -18,6 +18,7 @@ const override = css`
 const Singup = () => {
 	const [isSubmitting, setIsSubmitting] = useState(false)
 	const { register, handleSubmit } = useForm()
+	const location = useLocation()
 	const history = useHistory()
 
 	// sign user up
@@ -25,13 +26,11 @@ const Singup = () => {
 		setIsSubmitting(true)
 		registerUser(data.email, data.password)
 			.then((response) => {
-				console.log(response)
 				toast.success('Sign up successful!')
 				setIsSubmitting(false)
-				history.push('/login')
+				history.push(location?.state?.from?.pathname)
 			})
 			.catch((err) => {
-				console.log(err)
 				toast.error(err.message)
 				setIsSubmitting(false)
 			})

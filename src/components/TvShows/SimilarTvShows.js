@@ -4,11 +4,11 @@ import defaultImage from 'assets/default-image.jpg'
 
 const SimilarTvShows = ({ similar: { results } }) => {
 	return (
-		<section className='recommended-movie'>
+		<section className='recommended-movie similar'>
 			<div className='container'>
 				<h2>Similar Movies</h2>
 
-				<div className='recommend'>
+				<div className='movies'>
 					{results
 						.slice(0, 18)
 						.map(
@@ -34,7 +34,9 @@ const SimilarTvShows = ({ similar: { results } }) => {
 									</Link>
 
 									<div className='movie-info'>
-										<h3>{title ?? name}</h3>
+										<Link to={`/tvshow/${id}`}>
+											<h3>{title ?? name}</h3>
+										</Link>
 										<div className='movie-other-info'>
 											{release_date ? (
 												<p className='movie-type'>
