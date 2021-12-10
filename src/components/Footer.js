@@ -18,13 +18,16 @@ const Footer = () => {
 
 				<ul>
 					<li>React Js</li>
-					<li>Redux (Redux Toolkit)</li>
+					<li>Context API</li>
 					<li>Firebase</li>
 					<li>Framer Motion</li>
 					<li>TheMovieDB API</li>
 				</ul>
 				<p>
-					check out the code on <a href='#'>github</a>
+					check out the code on{' '}
+					<a href='https://github.com' target='_blank' rel='noreferrer'>
+						github
+					</a>
 				</p>
 			</div>
 		</footer>

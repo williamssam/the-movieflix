@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom'
 import { getAverageRatings } from 'utils/getAverageRatings'
 import defaultImage from 'assets/default-image.jpg'
 
-const SimilarTvShows = ({ similar: { results } }) => {
+const SimilarTvShows = ({ results }) => {
 	return (
 		<section className='recommended-movie similar'>
 			<div className='container'>
-				<h2>Similar Movies</h2>
+				<h2>Similar TvShows</h2>
 
 				<div className='movies'>
 					{results

@@ -2,6 +2,7 @@ import defaultImage from 'assets/default-image.jpg'
 import AddWatchListBtn from 'components/AddWatchlistBtn'
 import { AiOutlineLink } from 'react-icons/ai'
 import { ToastContainer } from 'react-toastify'
+import { getAverageRatings } from 'utils/getAverageRatings'
 
 /*
 	Renders the individual movie/tvshow poster image, trailervideo and othe rimportant info
@@ -60,7 +61,10 @@ const TitularInfo = ({
 						</div>
 
 						{vote_average ? (
-							<h2 className='rating'>
+							<h2
+								className={`rating ${
+									vote_average ? getAverageRatings(vote_average) : null
+								}`}>
 								{vote_average}
 								<span>/10</span>
 							</h2>

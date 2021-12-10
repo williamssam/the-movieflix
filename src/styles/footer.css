@@ -1,5 +1,15 @@
 footer {
-	background: var(--bg-clr);
+	background: linear-gradient(
+		90deg,
+		#232323,
+		#232323,
+		#222222,
+		#222222,
+		#222222,
+		#222222,
+		#212121,
+		#212121
+	);
 	color: var(--white);
 	width: 100%;
 	/* margin-top: 3rem; */

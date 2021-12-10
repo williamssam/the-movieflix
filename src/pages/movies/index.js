@@ -1,34 +1,33 @@
-import { useEffect, useState } from 'react'
-import Films from 'components/MoviePage/Films'
-import Hero from 'components/Shared/Hero'
-import InifiniteLoader from 'components/InfiniteLoader'
-import Search from 'components/Shared/Search'
-import Select from 'components/MoviePage/Select'
-import useInfiniteLoad from 'hooks/useInfiniteLoad'
+import { useEffect, useState } from 'react';
+import Films from 'components/MoviePage/Films';
+import Hero from 'components/Shared/Hero';
+import InifiniteLoader from 'components/InfiniteLoader';
+import Search from 'components/Shared/Search';
+import Select from 'components/MoviePage/Select';
+import useInfiniteLoad from 'hooks/useInfiniteLoad';
 
-import 'styles/homepage.css'
-import { useInView } from 'react-intersection-observer'
-import FetchResult from 'components/FetchResult'
+import 'styles/homepage.css';
+import { useInView } from 'react-intersection-observer';
+import FetchResult from 'components/FetchResult';
 
 /*
 	Renders the Movies Page: when you click 'movies' on the navbar
 **/
 const Movies = () => {
-	const { ref, inView } = useInView()
-	const [selectedValue, setSelectedValue] = useState('popular')
-
+	const { ref, inView } = useInView();
+	const [selectedValue, setSelectedValue] = useState('popular');
 	// fetches movies with infinite load ability
 	const { movies, error, isLoadingMore, size, setSize } = useInfiniteLoad(
 		'/movie',
 		selectedValue
-	)
+	);
 
 	useEffect(() => {
 		if (inView) {
-			setSize(size + 1)
+			setSize(size + 1);
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [inView])
+	}, [inView]);
 
 	return (
 		<main>
@@ -57,7 +56,7 @@ const Movies = () => {
 				</div>
 			</section>
 		</main>
-	)
-}
+	);
+};
 
-export default Movies
+export default Movies;

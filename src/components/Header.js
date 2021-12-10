@@ -6,7 +6,7 @@ import { CgMenuHotdog } from 'react-icons/cg'
 import { MdOutlineRestaurantMenu } from 'react-icons/md'
 import avatar from 'assets/avatar.jpg'
 import { useState } from 'react'
-// import { motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 /*
 	the website header
@@ -18,7 +18,10 @@ const Header = () => {
 
 	return (
 		<header className='header'>
-			<div className='container'>
+			<motion.div
+				initial={{ y: -250 }}
+				animate={{ y: 0 }}
+				className='container'>
 				<h1 className='logo'>
 					<Link to='/'> the/MovieFlix </Link>
 				</h1>
@@ -142,7 +145,7 @@ const Header = () => {
 						<MdOutlineRestaurantMenu style={{ fontSize: '25px' }} />
 					)}
 				</div>
-			</div>
+			</motion.div>
 		</header>
 	)
 }

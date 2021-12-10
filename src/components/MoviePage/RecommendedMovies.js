@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { getAverageRatings } from 'utils/getAverageRatings'
 import defaultImage from 'assets/default-image.jpg'
 
-const RecommendedMovies = ({ recommendations: { results } }) => {
+const RecommendedMovies = ({ results }) => {
 	return (
 		<section className='recommended-movie'>
 			<div className='container'>

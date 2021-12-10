@@ -1,6 +1,6 @@
 .header {
-	padding: 0.75rem 3rem;
-	background: linear-gradient(
+	padding: 0.85rem 3rem;
+	/* background: linear-gradient(
 		90deg,
 		#232323,
 		#232323,
@@ -10,9 +10,13 @@
 		#222222,
 		#212121,
 		#212121
-	);
-
+	); */
 	color: var(--white);
+	position: absolute;
+	top: 0;
+	background: transparent;
+	width: 100%;
+	z-index: 10;
 	transition: all 0.3s ease-in-out;
 }
 
@@ -42,7 +46,7 @@
 .nav-list {
 	display: flex;
 	align-items: center;
-	gap: 2rem;
+	gap: 4rem;
 }
 
 .nav-list li {
@@ -100,7 +104,7 @@
 	gap: 0.8rem;
 	text-transform: capitalize;
 	letter-spacing: 0.5px;
-	padding: 0.5rem 2rem;
+	padding: 0.25rem 2rem;
 	border: 2px solid var(--white);
 	color: var(--white);
 	border-radius: var(--border-radius);
@@ -108,8 +112,9 @@
 }
 
 .btn:hover {
-	background: var(--white);
-	color: var(--text-clr);
+	background: var(--accent-clr);
+	border-color: var(--accent-clr);
+	color: var(--white);
 }
 
 .avatar {

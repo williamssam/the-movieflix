@@ -24,15 +24,15 @@ const MovieDetails = () => {
 			<div
 				className='movie-hero'
 				style={{
-					background: `linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%), url('https://image.tmdb.org/t/p/original${data.backdrop_path}') no-repeat center/cover`,
+					background: `linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%), url('https://image.tmdb.org/t/p/original${data.backdrop_path}') no-repeat top/cover`,
 				}}></div>
 
 			<section className='info'>
 				<TitularInfo {...data} />
 				<Status {...data} />
-				<Casts {...data} />
-				<RecommendedMovies {...data} />
-				<SimilarMovies {...data} />
+				<Casts {...data.credits} />
+				<RecommendedMovies {...data.recommendations} />
+				<SimilarMovies {...data.similar} />
 			</section>
 		</main>
 	)

@@ -1,5 +1,8 @@
-// const baseUrl = 'https://pokeapi.co/api/v2'
-
+/*
+	*****
+	hook to fetch movies based on type e.g popular, top-rated
+	****
+*/
 import useSWR from 'swr'
 const apiKey = process.env.REACT_APP_API_KEY
 

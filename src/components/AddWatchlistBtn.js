@@ -1,61 +1,54 @@
-import { useAuth } from 'hooks/useAuth'
-import { toast } from 'react-toastify'
+import { useAuth } from 'hooks/useAuth';
+import { toast } from 'react-toastify';
 // import { doc, setDoc } from 'firebase/firestore'
-import { collection, addDoc } from 'firebase/firestore'
-import { db } from 'utils/firebase-init'
-import { css } from '@emotion/react'
-import ClipLoader from 'react-spinners/ClipLoader'
-import { useState } from 'react'
+import { collection, addDoc } from 'firebase/firestore';
+import { db } from 'utils/firebase-init';
+import { css } from '@emotion/react';
+import ClipLoader from 'react-spinners/ClipLoader';
+import { useState } from 'react';
 
 const override = css`
 	display: block;
 	margin: 0 auto;
-`
+`;
 
-const AddWatchListBtn = ({
-	title,
-	name,
-	id,
-	release_date,
-	vote_average,
-	poster_path,
-}) => {
-	const { currentUser } = useAuth()
-	const [isSubmitting, setIsSubmitting] = useState(false)
-	const [addedToWatchlist, setAddedToWatchlist] = useState(false)
+const AddWatchListBtn = ({ title, name, id, vote_average, poster_path }) => {
+	const { currentUser } = useAuth();
+	const [isSubmitting, setIsSubmitting] = useState(false);
+	const [addedToWatchlist, setAddedToWatchlist] = useState(false);
 
 	// Addding movie/tvshow to database
 	const addToWatchlist = async () => {
-		setIsSubmitting(true)
+		setIsSubmitting(true);
 		try {
-			const docRef = await addDoc(collection(db, 'watchlist'), {
+			await addDoc(collection(db, 'watchlist'), {
 				name: title ?? name,
 				id,
 				vote_average,
 				poster_path,
-			})
-			setIsSubmitting(false)
-			toast.info(`${title ?? name} added to your list 👍`)
-			setAddedToWatchlist(true)
+			});
+			setIsSubmitting(false);
+			toast.info(`${title ?? name} added to your list 👍`);
+			setAddedToWatchlist(true);
 		} catch (e) {
-			console.error('Error adding document: ', e)
+			console.error('Error adding document: ', e);
 		}
-	}
+	};
 
 	const checkBtnDisabled = () => {
-		return !currentUser || isSubmitting === true || addedToWatchlist === true
-	}
+		return !currentUser || isSubmitting === true || addedToWatchlist === true;
+	};
 
 	// change button text
 	const changeBtnText = () => {
 		if (addedToWatchlist) {
-			return 'Already in your watchlist'
+			return 'Already in your watchlist';
 		} else if (currentUser) {
-			return 'Add to watchlist'
+			return 'Add to watchlist';
 		} else {
-			return 'Login to add to watchlis'
+			return 'Login to add to watchlist';
 		}
-	}
+	};
 
 	return (
 		<button
@@ -83,7 +76,7 @@ const AddWatchListBtn = ({
 				<span>{changeBtnText()}</span>
 			)}
 		</button>
-	)
-}
+	);
+};
 
-export default AddWatchListBtn
+export default AddWatchListBtn;

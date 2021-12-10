@@ -4,6 +4,7 @@ import { SWRConfig } from 'swr'
 import App from './App'
 import './index.css'
 import AuthContextProvider from 'context/AuthContext'
+import { BrowserRouter as Router } from 'react-router-dom'
 // fetch function used by useSWR
 const fetcher = async (...args) => {
 	const res = await fetch(...args)
@@ -21,12 +22,13 @@ const fetcher = async (...args) => {
 
 ReactDOM.render(
 	<React.StrictMode>
-		<AuthContextProvider>
-			<SWRConfig value={{ fetcher }}>
-				<App />
-			</SWRConfig>
-		</AuthContextProvider>
+		<Router>
+			<AuthContextProvider>
+				<SWRConfig value={{ fetcher }}>
+					<App />
+				</SWRConfig>
+			</AuthContextProvider>
+		</Router>
 	</React.StrictMode>,
 	document.getElementById('root')
 )
-

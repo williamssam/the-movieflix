@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 import Movies from 'pages/movies'
 import MovieDetails from 'pages/movies/MovieDetails'
 import NotFound from 'pages/404'
@@ -15,7 +15,7 @@ import AuthRoute from 'components/AuthRoute'
 
 function App() {
 	return (
-		<Router>
+		<>
 			<Header />
 			<Switch>
 				<Route exact path='/' component={Home} />
@@ -33,7 +33,7 @@ function App() {
 				<Route path='*' component={NotFound} />
 			</Switch>
 			<Footer />
-		</Router>
+		</>
 	)
 }
 

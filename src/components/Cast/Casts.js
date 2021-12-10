@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import defaultCastImage from 'assets/default-cast-image.jpeg'
 
-const Casts = ({ credits: { cast } }) => {
+const Casts = ({ cast }) => {
 	return (
 		<section className='casts'>
 			<div className='container'>

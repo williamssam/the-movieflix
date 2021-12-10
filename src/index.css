@@ -19,11 +19,22 @@
 	--bg-clr: hsl(225, 17%, 9%);
 	--secondary-clr: hsl(218, 13%, 64%);
 	--tertiary-clr: hsl(228, 100%, 98%);
-	--white: hsl(0, 0%, 95%);
+	--white: hsl(0, 0%, 98%);
 	--accent-clr: hsl(275, 100%, 25%);
 	--select-border: var(--secondary-clr);
 	--select-arrow: var(--select-border);
 	--border-radius: 5px;
+}
+
+/* remove focus from all elements */
+*:focus:not(:focus-visible) {
+	outline: none;
+}
+
+/* adds focus style only on pressing tab key */
+:focus-visible {
+	outline: 2px dotted var(--accent-clr);
+	outline-offset: 3px;
 }
 
 html {
@@ -130,7 +141,6 @@ footer {
 .container {
 	max-width: 1800px;
 	margin: 0 auto;
-	border: 1px solid red;
 }
 
 button:hover {
