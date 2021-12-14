@@ -1,25 +1,25 @@
-import { useParams } from 'react-router'
-import { useRequest } from 'hooks/useRequest'
-import Casts from 'components/Cast/Casts'
-import Status from 'components/Shared/Status'
-import TitularInfo from 'components/Shared/TitularInfo'
-import Loader from 'components/Loader'
-import Error from 'components/Error'
-import RecommendedTvShows from 'components/TvShows/RecommendedTvShows'
-import SimilarTvShows from 'components/TvShows/SimilarTvShows'
+import { useParams } from 'react-router';
+import { useRequest } from 'hooks/useRequest';
+import Casts from 'components/cast/Casts';
+import Status from 'components/shared/Status';
+import TitularInfo from 'components/shared/TitularInfo';
+import Loader from 'components/Loader';
+import Error from 'components/Error';
+import RecommendedTvShows from 'components/tvshows/RecommendedTvShows';
+import SimilarTvShows from 'components/tvshows/SimilarTvShows';
 
-import 'styles/movie-details.css'
-import Seasons from 'components/TvShows/Seasons'
+import 'styles/movie-details.css';
+import Seasons from 'components/tvshows/Seasons';
 
 /*
 	Individual tvshows details page
 */
 const TvShowsDetails = () => {
-	const { id } = useParams()
-	const { data, error } = useRequest(id, '/tv')
+	const { id } = useParams();
+	const { data, error } = useRequest(id, '/tv');
 
-	if (!data) return <Loader />
-	if (error) return <Error />
+	if (!data) return <Loader />;
+	if (error) return <Error />;
 
 	return (
 		<main className='movie-details'>
@@ -38,7 +38,7 @@ const TvShowsDetails = () => {
 				<SimilarTvShows {...data.similar} />
 			</section>
 		</main>
-	)
-}
+	);
+};
 
-export default TvShowsDetails
+export default TvShowsDetails;

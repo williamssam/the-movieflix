@@ -1,20 +1,20 @@
-import { db } from 'utils/firebase-init'
-import { collection, onSnapshot, doc, deleteDoc } from 'firebase/firestore'
+import { db } from 'utils/firebase-init';
+import { collection, onSnapshot, doc, deleteDoc } from 'firebase/firestore';
 
-import { useEffect, useState } from 'react'
-import Film from 'components/MoviePage/Film'
+import { useEffect, useState } from 'react';
+import Film from 'components/movie/Film';
 
-import 'styles/watchlist.css'
+import 'styles/watchlist.css';
 
 /*
 	Renders the current user watchlist from firestore
 **/
 const Watchlist = () => {
-	const [watchlist, setWatchlist] = useState([])
+	const [watchlist, setWatchlist] = useState([]);
 
 	const deleteMovie = async (id) => {
-		await deleteDoc(doc(db, 'watchlist', id))
-	}
+		await deleteDoc(doc(db, 'watchlist', id));
+	};
 
 	useEffect(() => {
 		const unsubscribe = onSnapshot(
@@ -23,13 +23,13 @@ const Watchlist = () => {
 				const muq = snapshot.docs.map((doc) => ({
 					...doc.data(),
 					docId: doc.id,
-				}))
-				setWatchlist(muq)
+				}));
+				setWatchlist(muq);
 			}
-		)
+		);
 
-		return () => unsubscribe()
-	}, [])
+		return () => unsubscribe();
+	}, []);
 
 	return (
 		<main>
@@ -51,7 +51,7 @@ const Watchlist = () => {
 				</div>
 			</section>
 		</main>
-	)
-}
+	);
+};
 
-export default Watchlist
+export default Watchlist;

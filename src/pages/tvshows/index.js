@@ -1,34 +1,34 @@
-import FetchResult from 'components/FetchResult'
-import InifiniteLoader from 'components/InfiniteLoader'
-import Hero from 'components/Shared/Hero'
-import Search from 'components/Shared/Search'
-import Select from 'components/TvShows/Select'
-import Series from 'components/TvShows/Series'
-import useInfiniteLoad from 'hooks/useInfiniteLoad'
-import { useEffect, useState } from 'react'
-import { useInView } from 'react-intersection-observer'
+import FetchResult from 'components/FetchResult';
+import InifiniteLoader from 'components/InfiniteLoader';
+import Hero from 'components/tvshows/Hero';
+import Search from 'components/shared/Search';
+import Select from 'components/tvshows/Select';
+import Series from 'components/tvshows/Series';
+import useInfiniteLoad from 'hooks/useInfiniteLoad';
+import { useEffect, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 
-import 'styles/homepage.css'
+import 'styles/homepage.css';
 
 /*
 	Renders the TVShows Page: when you click 'tvshow' on the navbar
 **/
 const TvShows = () => {
-	const { ref, inView } = useInView()
-	const [selectedValue, setSelectedValue] = useState('popular')
+	const { ref, inView } = useInView();
+	const [selectedValue, setSelectedValue] = useState('popular');
 
 	// fetches movies with infinite load ability
 	const { movies, error, isLoadingMore, size, setSize } = useInfiniteLoad(
 		'/tv',
 		selectedValue
-	)
+	);
 
 	useEffect(() => {
 		if (inView) {
-			setSize(size + 1)
+			setSize(size + 1);
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [inView])
+	}, [inView]);
 
 	return (
 		<main>
@@ -57,7 +57,7 @@ const TvShows = () => {
 				</div>
 			</section>
 		</main>
-	)
-}
+	);
+};
 
-export default TvShows
+export default TvShows;

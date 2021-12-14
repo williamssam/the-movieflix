@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import Films from 'components/MoviePage/Films';
-import Hero from 'components/Shared/Hero';
+import Films from 'components/movie/Films';
+import Hero from 'components/movie/Hero';
 import InifiniteLoader from 'components/InfiniteLoader';
-import Search from 'components/Shared/Search';
-import Select from 'components/MoviePage/Select';
+import Search from 'components/shared/Search';
+import Select from 'components/movie/Select';
 import useInfiniteLoad from 'hooks/useInfiniteLoad';
 
 import 'styles/homepage.css';

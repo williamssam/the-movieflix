@@ -13,7 +13,7 @@
 	); */
 	color: var(--white);
 	position: absolute;
-	top: 0;
+	top: 0.5rem;
 	background: transparent;
 	width: 100%;
 	z-index: 10;

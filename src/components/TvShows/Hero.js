@@ -6,7 +6,7 @@ const apiKey = process.env.REACT_APP_API_KEY;
 
 const Hero = () => {
 	const { data, error } = useSWR(
-		`https://api.themoviedb.org/3/trending/all/day?api_key=${apiKey}`
+		`https://api.themoviedb.org/3/trending/tv/day?api_key=${apiKey}`
 	);
 	const [randomMovie, setRandomMovie] = useState(null);
 
@@ -17,7 +17,6 @@ const Hero = () => {
 			data.results[Math.floor(Math.random() * data.results.length - 1)]
 		);
 	}, [data, error]);
-	// ;
 
 	console.log('randomMovie', randomMovie);
 	return (
@@ -50,14 +49,7 @@ const Hero = () => {
 							vote_average={randomMovie.vote_average}
 							poster_path={randomMovie.poster_path}
 						/>
-						<Link
-							to={
-								randomMovie.media_type === 'movie'
-									? `${`/movie/${randomMovie.id}`}`
-									: `${`/tvshow/${randomMovie.id}`}`
-							}>
-							Details →
-						</Link>
+						<Link to={`/tvshow/${randomMovie.id}`}>Details →</Link>
 					</div>
 				</div>
 			)}

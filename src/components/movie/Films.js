@@ -1,4 +1,4 @@
-import Film from 'components/MoviePage/Film';
+import Film from 'components/movie/Film';
 import { motion } from 'framer-motion';
 
 const container = {

@@ -1,23 +1,23 @@
-import { useParams } from 'react-router'
-import Casts from 'components/Cast/Casts'
-import Status from 'components/Shared/Status'
-import TitularInfo from 'components/Shared/TitularInfo'
-import { useRequest } from 'hooks/useRequest'
-import Loader from 'components/Loader'
-import Error from 'components/Error'
-import 'styles/movie-details.css'
-import SimilarMovies from 'components/MoviePage/SimilarMovies'
-import RecommendedMovies from 'components/MoviePage/RecommendedMovies'
+import { useParams } from 'react-router';
+import Casts from 'components/cast/Casts';
+import Status from 'components/shared/Status';
+import TitularInfo from 'components/shared/TitularInfo';
+import { useRequest } from 'hooks/useRequest';
+import Loader from 'components/Loader';
+import Error from 'components/Error';
+import 'styles/movie-details.css';
+import SimilarMovies from 'components/movie/SimilarMovies';
+import RecommendedMovies from 'components/movie/RecommendedMovies';
 
 /*
 	Individual movie details page
 */
 const MovieDetails = () => {
-	const { id } = useParams()
-	const { data, error } = useRequest(id, '/movie')
+	const { id } = useParams();
+	const { data, error } = useRequest(id, '/movie');
 
-	if (!data) return <Loader />
-	if (error) return <Error />
+	if (!data) return <Loader />;
+	if (error) return <Error />;
 
 	return (
 		<main className='movie-details'>
@@ -35,7 +35,7 @@ const MovieDetails = () => {
 				<SimilarMovies {...data.similar} />
 			</section>
 		</main>
-	)
-}
+	);
+};
 
-export default MovieDetails
+export default MovieDetails;

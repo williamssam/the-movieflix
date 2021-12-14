@@ -1,5 +1,5 @@
-import Show from 'components/TvShows/Show'
-import { motion } from 'framer-motion'
+import Show from 'components/tvshows/Show';
+import { motion } from 'framer-motion';
 
 const container = {
 	hidden: { opacity: 1, scale: 0 },
@@ -11,7 +11,7 @@ const container = {
 			staggerChildren: 0.2,
 		},
 	},
-}
+};
 
 const Series = ({ data }) => {
 	return (
@@ -24,7 +24,7 @@ const Series = ({ data }) => {
 				? data.results.map((film) => <Show key={film.id} {...film} />)
 				: null}
 		</motion.section>
-	)
-}
+	);
+};
 
-export default Series
+export default Series;
