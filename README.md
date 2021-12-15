@@ -1,6 +1,6 @@
-# the/MovieFlix - A movie reviw site
+# the/MovieFlix - A movie site
 
-My goal was to create a movie site like netflix but with another design but without the movies 😉😂.
+My goal was to create a movie site like netflix but with another design but without the movies 😉😂. Built with React js
 
 ## Getting Started
 
@@ -31,7 +31,7 @@ One of the challenges I encouter was converting something like "132min to 2h 12m
 
 ```js
 let formatTime = (min) =>
-	`${Math.trunc(min / 60)}h ${`0${min % 60}`.slice(-2)}min`;
+	`${Math.trunc(min / 60)}h ${`0${min % 60}`.slice(-2)}min`
 ```
 
 ## If I had more time I would change this
