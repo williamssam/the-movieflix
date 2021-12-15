@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
-import image from '../assets/29.png'
-import '../styles/NotFound.css'
+import image from 'assets/29.png'
+import 'styles/NotFound.css'
 
 /*
 	*****

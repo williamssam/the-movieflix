@@ -1,19 +1,19 @@
-import '../styles/casts-details.css';
-import CastBio from '../components/cast/CastBio';
-import CastMovies from '../components/cast/CastMovies';
-import useSWR from 'swr';
-import { useParams } from 'react-router';
-import Loader from '../components/Loader';
-import Error from '../components/Error';
-const apiKey = process.env.REACT_APP_API_KEY;
+import 'styles/casts-details.css'
+import CastBio from 'components/cast/CastBio'
+import CastMovies from 'components/cast/CastMovies'
+import useSWR from 'swr'
+import { useParams } from 'react-router'
+import Loader from 'components/Loader'
+import Error from 'components/Error'
+const apiKey = process.env.REACT_APP_API_KEY
 
 const Casts = () => {
-	const { id } = useParams();
-	const url = `https://api.themoviedb.org/3/person/${id}?api_key=${apiKey}&language=en-US&append_to_response=combined_credits,external_ids`;
-	const { data, error } = useSWR(url);
+	const { id } = useParams()
+	const url = `https://api.themoviedb.org/3/person/${id}?api_key=${apiKey}&language=en-US&append_to_response=combined_credits,external_ids`
+	const { data, error } = useSWR(url)
 
-	if (!data) return <Loader />;
-	if (error) return <Error />;
+	if (!data) return <Loader />
+	if (error) return <Error />
 	return (
 		<>
 			<main className='cast-details'>
@@ -21,7 +21,7 @@ const Casts = () => {
 				<CastMovies {...data} />
 			</main>
 		</>
-	);
-};
+	)
+}
 
-export default Casts;
+export default Casts

@@ -1,25 +1,25 @@
-import useSWR from 'swr';
-import { useState, useEffect } from 'react';
-import AddWatchListBtn from 'components/AddWatchlistBtn';
-import { Link } from 'react-router-dom';
-const apiKey = process.env.REACT_APP_API_KEY;
+import useSWR from 'swr'
+import { useState, useEffect } from 'react'
+import AddWatchListBtn from 'components/AddWatchlistBtn'
+import { Link } from 'react-router-dom'
+const apiKey = process.env.REACT_APP_API_KEY
 
 const Hero = () => {
 	const { data, error } = useSWR(
 		`https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKey}`
-	);
-	const [randomMovie, setRandomMovie] = useState(null);
+	)
+	const [randomMovie, setRandomMovie] = useState(null)
 
 	useEffect(() => {
-		if (!data) return 'Loading...';
-		if (error) console.log(error);
+		if (!data) return 'Loading...'
+		if (error) console.log(error)
 		setRandomMovie(
 			data.results[Math.floor(Math.random() * data.results.length - 1)]
-		);
-	}, [data, error]);
+		)
+	}, [data, error])
 	// ;
 
-	console.log('randomMovie', randomMovie);
+	console.log('randomMovie', randomMovie)
 	return (
 		<section
 			className='hero-movie'
@@ -55,7 +55,7 @@ const Hero = () => {
 				</div>
 			)}
 		</section>
-	);
-};
+	)
+}
 
-export default Hero;
+export default Hero
