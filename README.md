@@ -1,6 +1,6 @@
 # the/MovieFlix - A movie reviw site
 
-As a big fan of movies and tv series, my goal was to create a movie site like netflix but with another design but without the movies 😉😂.
+My goal was to create a movie site like netflix but with another design but without the movies 😉😂.
 
 ## Getting Started
 
