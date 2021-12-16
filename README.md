@@ -1,6 +1,8 @@
-# the/MovieFlix - A movie site
+# the/MovieFlix - A Movie site
 
-My goal was to create a movie site like netflix but with another design but without the movies 😉😂. Built with React js
+My goal was to create a movie site like netflix but with another design and without the movies 😉😂. Built with React js
+
+![](screenshot-1.png)
 
 ## Getting Started
 

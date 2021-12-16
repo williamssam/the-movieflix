@@ -7,12 +7,23 @@ const Footer = () => {
 				<div>
 					<p>
 						Created by{' '}
-						<a href='https://williamssam.netlify.app'>Williams Samuel</a>.
+						<a
+							href='https://williamssam.netlify.app'
+							target='_blank'
+							rel='noreferrer'>
+							Williams Samuel
+						</a>
+						.
 					</p>
 					<p className='footer-twitter'>
 						Follow me on{' '}
-						<a href='https://twitter.com/williams_codes'>twitter</a> for
-						more.
+						<a
+							href='https://twitter.com/williams_codes'
+							target='_blank'
+							rel='noreferrer'>
+							twitter
+						</a>{' '}
+						for more.
 					</p>
 				</div>
 
