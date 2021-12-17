@@ -223,7 +223,6 @@
 	width: 100%;
 	height: 250px;
 	object-fit: cover;
-	object-position: top;
 }
 
 .cast div {
@@ -325,8 +324,11 @@
 }
 
 @media screen and (max-width: 680px) {
-	.movie-hero {
+	/* .movie-hero {
 		height: 50vh;
+	} */
+	.info h2 {
+		text-align: center;
 	}
 
 	.details {
@@ -350,6 +352,8 @@
 	}
 
 	.tag {
+		flex-direction: column;
+		gap: 0.5rem;
 		justify-content: center;
 	}
 
@@ -382,7 +386,7 @@
 	}
 
 	.casts {
-		padding: 3rem 3rem 0 3rem;
+		padding: 3rem 3rem 5rem 3rem;
 	}
 
 	.similar {

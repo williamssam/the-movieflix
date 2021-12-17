@@ -2,7 +2,7 @@
       home section
  *****************************/
 .home {
-	background: linear-gradient(var(--text-clr), transparent),
+	background: linear-gradient(transparent, var(--text-clr)),
 		url('../assets/homepage-img.png') no-repeat bottom/cover;
 	background-attachment: fixed;
 	height: 50vh;
@@ -68,7 +68,7 @@
 }
 
 .hero-movie-container h2 {
-	font-size: 4rem;
+	font-size: clamp(3rem, 5vw, 4rem);
 }
 
 .hero-footer {
@@ -280,6 +280,7 @@ input[type='search'] {
 
 	display: flex;
 	flex-direction: column;
+	align-items: flex-start;
 	justify-content: flex-end;
 	transform: translateY(250px);
 	transition: transform 350ms ease-in-out;
@@ -305,6 +306,7 @@ input[type='search'] {
 	gap: 3rem;
 	justify-content: space-between;
 	font-size: 1.375rem;
+	width: 100%;
 }
 
 .movie-type {
@@ -326,6 +328,7 @@ input[type='search'] {
 @media screen and (max-width: 640px) {
 	.home {
 		padding: 0 1rem;
+		height: 60vh;
 	}
 
 	.hero-movie {
@@ -339,13 +342,9 @@ input[type='search'] {
 		align-items: center;
 	}
 
-	.hero-movie-container h2 {
-		font-size: 2rem;
-	}
-
-	/* .hero-movie-container .storyline {
-		font-size: 1.4rem;
-	} */
+	/* font-size: rem;
+	}.hero-movie-container h2 {
+		 */
 
 	.hero-footer {
 		display: flex;
@@ -387,8 +386,9 @@ input[type='search'] {
 
 @media screen and (max-width: 450px) {
 	.movies {
-		grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+		padding: 0 3rem;
 	}
+
 	input[type='search'] {
 		background: var(--white);
 		padding: 1rem 2rem;

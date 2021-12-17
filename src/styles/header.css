@@ -11,7 +11,7 @@
 		#212121,
 		#212121
 	); */
-	color: var(--white);
+	/* color: var(--white); */
 	position: absolute;
 	top: 0.5rem;
 	background: transparent;
@@ -105,8 +105,8 @@
 	text-transform: capitalize;
 	letter-spacing: 0.5px;
 	padding: 0.25rem 2rem;
-	border: 2px solid var(--white);
-	color: var(--white);
+	border: 2px solid var(--accent-clr);
+	color: var(--accent-clr);
 	border-radius: var(--border-radius);
 	transition: all 300ms ease-in-out;
 }
@@ -135,7 +135,6 @@
 
 	.hamburger {
 		display: block;
-		color: var(--white);
 		line-height: 0;
 	}
 
@@ -143,8 +142,8 @@
 		all: unset;
 		width: 300px;
 		position: absolute;
-		top: 4rem;
-		right: 1.75rem;
+		top: 5rem;
+		right: 1rem;
 		padding: 2rem;
 		background: var(--white);
 		color: var(--bg-clr);
@@ -161,7 +160,7 @@
 			100px 100px 80px rgba(0, 0, 0, 0.02);
 
 		transform: translateY(-1000px);
-		transition: transform 200ms ease-in-out;
+		transition: transform 325ms ease-in-out;
 	}
 
 	.nav-list {
@@ -178,13 +177,17 @@
 		width: 340px;
 		padding: 1rem 2rem;
 		position: absolute;
-		right: 1.75rem;
 		top: 23rem;
 		justify-content: space-between;
 		background: var(--accent-clr);
 		z-index: 999;
 		transform: translateY(-1000px);
-		transition: transform 200ms ease-in-out;
+		transition: transform 325ms ease-in-out;
+	}
+
+	.btn {
+		color: var(--white);
+		border-color: var(--white);
 	}
 
 	.open {

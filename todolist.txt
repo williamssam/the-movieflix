@@ -9,3 +9,5 @@ a loader b4 the watchlist loades
 check your firestore security
 add to movies array under
 fix the hero page
+
+on mobile, dont use pop for the social signin

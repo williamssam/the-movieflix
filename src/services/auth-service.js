@@ -3,7 +3,7 @@ import {
 	signInWithEmailAndPassword,
 	GoogleAuthProvider,
 	signOut,
-	signInWithPopup,
+	signInWithRedirect,
 } from 'firebase/auth'
 import { auth } from 'utils/firebase-init'
 
@@ -17,7 +17,7 @@ export const loginUser = (email, password) => {
 
 export const loginUserWithGoogle = () => {
 	const provider = new GoogleAuthProvider()
-	return signInWithPopup(auth, provider)
+	return signInWithRedirect(auth, provider)
 }
 
 export const logoutUser = () => {
