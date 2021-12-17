@@ -2,9 +2,14 @@
       home section
  *****************************/
 .home {
-	background: linear-gradient(transparent, var(--text-clr)),
-		url('../assets/homepage-img.png') no-repeat bottom/cover;
-	background-attachment: fixed;
+	background: linear-gradient(
+		to right top,
+		#101011,
+		#171717,
+		#1d1d1d,
+		#232323,
+		#292929
+	);
 	height: 50vh;
 	color: var(--white);
 	padding: 0 3rem;

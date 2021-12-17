@@ -11,7 +11,7 @@
 		#212121,
 		#212121
 	); */
-	/* color: var(--white); */
+	color: var(--white);
 	position: absolute;
 	top: 0.5rem;
 	background: transparent;
@@ -105,8 +105,8 @@
 	text-transform: capitalize;
 	letter-spacing: 0.5px;
 	padding: 0.25rem 2rem;
-	border: 2px solid var(--accent-clr);
-	color: var(--accent-clr);
+	border: 2px solid var(--white);
+	color: var(--white);
 	border-radius: var(--border-radius);
 	transition: all 300ms ease-in-out;
 }

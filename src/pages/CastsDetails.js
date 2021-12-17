@@ -17,6 +17,7 @@ const Casts = () => {
 	return (
 		<>
 			<main className='cast-details'>
+				<article className='home'></article>
 				<CastBio {...data} />
 				<CastMovies {...data} />
 			</main>

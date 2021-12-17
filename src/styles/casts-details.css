@@ -1,3 +1,7 @@
+.cast-details .home {
+	height: 10vh;
+}
+
 .cast-section .nav-list,
 .cast-section .logo {
 	color: var(--bg-clr);
@@ -6,10 +10,12 @@
 .cast-bio,
 .cast-movies {
 	align-self: flex-start;
-	margin-top: 5rem;
 	padding: 3rem;
 	width: 100%;
-	/* background: red; */
+}
+
+.cast-movies {
+	margin-top: 5rem;
 }
 
 .cast-bio .container {
