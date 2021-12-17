@@ -13,7 +13,7 @@ Nte: Get your api key from [TheMovieDB](https://www.themoviedb.org/documentation
 
 ## Links
 
--  Live Site URL: [the/MovieFlix]()
+-  Live Site URL: [the/MovieFlix](https://themovieflix.netlify.app/)
 
 ## How to navigate this project
 
