@@ -2,7 +2,7 @@
 
 My goal was to create a movie site like netflix but with another design and without the movies 😉😂. Built with React js
 
-![](screenshot-1.png)
+![](screenshot.png)
 
 ## Getting Started
 
@@ -17,8 +17,8 @@ Nte: Get your api key from [TheMovieDB](https://www.themoviedb.org/documentation
 
 ## How to navigate this project
 
--  The application fetches data from TheMovieDB using 'useSWR' hook
--  Each inidividual components can be found in the components folder, the "shared" folder contains components shared by both the moive and tvshow.
+-  The application fetches data from TheMovieDB using 'useSWR' hook from the swr library
+-  Each inidividual components can be found in the components folder, the "shared" folder contains components shared by both the movie and tvshow.
 -  All reusable functions are located in the "utils" folder
 
 ## Why I built the project this way
