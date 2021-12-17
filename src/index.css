@@ -26,17 +26,6 @@
 	--border-radius: 5px;
 }
 
-/* remove focus from all elements */
-*:focus:not(:focus-visible) {
-	outline: none;
-}
-
-/* adds focus style only on pressing tab key */
-:focus-visible {
-	outline: 2px dotted var(--accent-clr);
-	outline-offset: 3px;
-}
-
 html {
 	font-size: 10px;
 	scroll-behavior: smooth;

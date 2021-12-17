@@ -203,9 +203,16 @@ select,
 
 .searched-data a {
 	display: flex;
+	align-items: flex-start;
 	gap: 2rem;
 	padding: 0.5rem 2rem;
 	border-bottom: 0.7px solid #eee;
+}
+
+.searched-data div {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
 }
 
 .searched-data a:hover {
