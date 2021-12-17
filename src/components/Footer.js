@@ -36,7 +36,10 @@ const Footer = () => {
 				</ul>
 				<p>
 					check out the code on{' '}
-					<a href='https://github.com' target='_blank' rel='noreferrer'>
+					<a
+						href='https://github.com/williamssam/the-movieflix'
+						target='_blank'
+						rel='noreferrer'>
 						github
 					</a>
 				</p>
