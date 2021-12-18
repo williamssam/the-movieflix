@@ -5,7 +5,7 @@ import { logoutUser } from 'services/auth-service'
 import { CgMenuHotdog } from 'react-icons/cg'
 import { MdOutlineRestaurantMenu } from 'react-icons/md'
 import avatar from 'assets/avatar.jpg'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 
 /*
@@ -13,11 +13,18 @@ import { motion } from 'framer-motion'
 **/
 const Header = () => {
 	const [open, setOpen] = useState(false)
+	const [navFixed, setNavFixed] = useState(false)
 	const { currentUser } = useAuth()
 	const location = useLocation()
 
+	useEffect(() => {
+		window.addEventListener('scroll', () =>
+			setNavFixed(window.pageYOffset > 300)
+		)
+	}, [])
+
 	return (
-		<header className='header'>
+		<header className={`header ${navFixed ? 'fixednav' : ''}`}>
 			<motion.div
 				initial={{ y: -250 }}
 				animate={{ y: 0 }}

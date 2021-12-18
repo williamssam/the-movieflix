@@ -18,14 +18,13 @@ const Hero = () => {
 		)
 	}, [data, error])
 
-	console.log('randomMovie', randomMovie)
 	return (
 		<section
 			className='hero-movie'
 			style={{
 				background: `linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%), url('https://image.tmdb.org/t/p/original${
 					randomMovie && randomMovie.backdrop_path
-				}') no-repeat top/cover`,
+				}') no-repeat center/cover`,
 			}}>
 			{randomMovie && (
 				<div className='hero-movie-container'>

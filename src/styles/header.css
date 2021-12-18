@@ -1,6 +1,16 @@
 .header {
-	padding: 0.85rem 3rem;
-	/* background: linear-gradient(
+	padding: 1rem 3rem;
+	color: var(--white);
+	position: fixed;
+	top: 0;
+	background: transparent;
+	width: 100%;
+	z-index: 10;
+	transition: all 300ms ease-in-out;
+}
+
+.fixednav {
+	background: linear-gradient(
 		90deg,
 		#232323,
 		#232323,
@@ -10,14 +20,7 @@
 		#222222,
 		#212121,
 		#212121
-	); */
-	color: var(--white);
-	position: absolute;
-	top: 0.5rem;
-	background: transparent;
-	width: 100%;
-	z-index: 10;
-	transition: all 0.3s ease-in-out;
+	);
 }
 
 .header.selected {
@@ -140,11 +143,11 @@
 
 	.nav {
 		all: unset;
-		width: 300px;
 		position: absolute;
 		top: 5rem;
-		right: 1rem;
-		padding: 2rem;
+		left: 0;
+		width: 100%;
+		padding: 2rem 0.5rem;
 		background: var(--white);
 		color: var(--bg-clr);
 		display: flex;
@@ -164,20 +167,23 @@
 	}
 
 	.nav-list {
-		flex-direction: column;
-		align-items: center;
-		gap: 1.5rem;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 3rem 2rem;
+		width: 100%;
 	}
 
 	.nav-list li a {
-		gap: 1rem;
+		gap: 2rem;
+		justify-content: center;
 	}
 
 	.btn-container {
-		width: 340px;
-		padding: 1rem 2rem;
+		padding: 1.2rem 2rem;
 		position: absolute;
-		top: 23rem;
+		top: 18rem;
+		left: 0;
+		width: 100%;
 		justify-content: space-between;
 		background: var(--accent-clr);
 		z-index: 999;
