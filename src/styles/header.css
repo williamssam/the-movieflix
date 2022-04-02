@@ -60,7 +60,7 @@
 .nav-list li a {
 	display: flex;
 	align-items: center;
-	gap: 1rem;
+	gap: 0.5rem;
 	text-transform: capitalize;
 	margin-right: 1rem;
 	position: relative;

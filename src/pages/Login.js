@@ -1,14 +1,14 @@
-import { Link } from 'react-router-dom'
 import '../styles/login.css'
-import { useForm } from 'react-hook-form'
-import { loginUser, loginUserWithGoogle } from 'services/auth-service'
-import { useHistory, useLocation } from 'react-router-dom'
-import { useState } from 'react'
-import { ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.min.css'
-import { useAuth } from 'hooks/useAuth'
 import { css } from '@emotion/react'
+import { useAuth } from 'hooks/useAuth'
+import { useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { Link, useHistory, useLocation } from 'react-router-dom'
 import ClipLoader from 'react-spinners/ClipLoader'
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.min.css'
+import { loginUser, loginUserWithGoogle } from 'services/auth-service'
+import { IoLogoGoogle } from "react-icons/io5";
 
 const override = css`
 	display: block;
@@ -53,14 +53,7 @@ const Login = () => {
 
 					<div className='social-btns'>
 						<button onClick={() => handleLoginWithGoogle()}>
-							<svg
-								xmlns='http://www.w3.org/2000/svg'
-								width='24'
-								height='24'
-								viewBox='0 0 24 24'
-								fill='currentColor'>
-								<path d='M20.283 10.356h-8.327v3.451h4.792c-.446 2.193-2.313 3.453-4.792 3.453a5.27 5.27 0 0 1-5.279-5.28 5.27 5.27 0 0 1 5.279-5.279c1.259 0 2.397.447 3.29 1.178l2.6-2.599c-1.584-1.381-3.615-2.233-5.89-2.233a8.908 8.908 0 0 0-8.934 8.934 8.907 8.907 0 0 0 8.934 8.934c4.467 0 8.529-3.249 8.529-8.934 0-.528-.081-1.097-.202-1.625z'></path>
-							</svg>
+							<IoLogoGoogle size={18} />
 							Login with Google
 						</button>
 					</div>
@@ -111,8 +104,6 @@ const Login = () => {
 							</p>
 						</div>
 					</form>
-
-					{`The current User is: ${currentUser?.email}`}
 				</section>
 			</div>
 			<ToastContainer

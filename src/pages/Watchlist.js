@@ -2,9 +2,9 @@ import { db } from 'utils/firebase-init';
 import { collection, onSnapshot, doc, deleteDoc } from 'firebase/firestore';
 
 import { useEffect, useState } from 'react';
-import Film from 'components/movie/Film';
 
 import 'styles/watchlist.css';
+import Movie from 'components/shared/Movie';
 
 /*
 	Renders the current user watchlist from firestore
@@ -41,7 +41,7 @@ const Watchlist = () => {
 					<section className='movies'>
 						{watchlist.map((list) => (
 							<div className='list'>
-								<Film {...list} />
+								<Movie {...list} />
 								<button onClick={() => deleteMovie(list.docId)}>
 									Remove
 								</button>

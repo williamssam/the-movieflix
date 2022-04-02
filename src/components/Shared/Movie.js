@@ -10,7 +10,8 @@ const item = {
 		opacity: 1,
 	},
 }
-const Film = ({ id, title, name, poster_path, vote_average, release_date }) => {
+
+const Movie = ({ id, title, name, poster_path, vote_average, release_date }) => {
 	const { ref, inView } = useInView()
 	return (
 		<>
@@ -19,7 +20,11 @@ const Film = ({ id, title, name, poster_path, vote_average, release_date }) => {
 				variants={item}
 				initial='hidden'
 				animate={inView ? 'visible' : 'hidden'}>
-				<Link to={`/movie/${id}`} title={title ?? name}>
+				<Link to={
+						release_date
+							? `${`/movie/${id}`}`
+							: `${`/tvshow/${id}`}`
+					} title={title ?? name}>
 					<img
 						src={`https://image.tmdb.org/t/p/original${poster_path}`}
 						alt=''
@@ -50,4 +55,4 @@ const Film = ({ id, title, name, poster_path, vote_average, release_date }) => {
 	)
 }
 
-export default Film
+export default Movie

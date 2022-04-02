@@ -1,5 +1,5 @@
-import Show from 'components/tvshows/Show';
 import { motion } from 'framer-motion';
+import Movie from './Movie';
 
 const container = {
 	hidden: { opacity: 1, scale: 0 },
@@ -13,7 +13,7 @@ const container = {
 	},
 };
 
-const Series = ({ data }) => {
+const Movies = ({ data }) => {
 	return (
 		<motion.section
 			variants={container}
@@ -21,10 +21,10 @@ const Series = ({ data }) => {
 			animate='visible'
 			className='movies'>
 			{data
-				? data.results.map((film) => <Show key={film.id} {...film} />)
+				? data.results.map((movie) => <Movie {...movie} key={movie.id} />)
 				: null}
 		</motion.section>
 	);
 };
 
-export default Series;
+export default Movies;

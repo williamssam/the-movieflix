@@ -44,7 +44,7 @@ const Seasons = ({ seasons }) => {
 											{getDateName(air_date)}.
 										</p>
 									) : null}
-									{overview ? <p>{overview}</p> : null}
+									{overview ? <p>{overview.length > 250 ? `${overview.slice(0, 250)}...` : overview}</p> : null}
 								</div>
 							</article>
 						)

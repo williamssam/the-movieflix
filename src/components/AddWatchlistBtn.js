@@ -1,11 +1,11 @@
+import { useState } from 'react';
 import { useAuth } from 'hooks/useAuth';
 import { toast } from 'react-toastify';
-// import { doc, setDoc } from 'firebase/firestore'
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from 'utils/firebase-init';
 import { css } from '@emotion/react';
 import ClipLoader from 'react-spinners/ClipLoader';
-import { useState } from 'react';
+import { IoBookmarks } from "react-icons/io5";
 
 const override = css`
 	display: block;
@@ -55,16 +55,7 @@ const AddWatchListBtn = ({ title, name, id, vote_average, poster_path }) => {
 			className='add-btn'
 			disabled={checkBtnDisabled() ? true : false}
 			onClick={() => addToWatchlist()}>
-			<svg
-				xmlns='http://www.w3.org/2000/svg'
-				width='16'
-				height='16'
-				viewBox='0 0 24 24'
-				fill='currentColor'
-				title='bookmark'>
-				<path d='M16.999 23V7c0-1.103-.897-2-2-2h-8c-1.103 0-2 .897-2 2v16l6-3.601 6 3.601z'></path>
-				<path d='M15.585 3h1.414c1.103 0 2 .897 2 2v10.443l2 2.489V3c0-1.103-.897-2-2-2h-8c-1.103 0-2 .897-2 2h6.586z'></path>
-			</svg>
+			<IoBookmarks />
 			{isSubmitting ? (
 				<ClipLoader
 					color='#ffffff'

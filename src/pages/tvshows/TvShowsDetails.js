@@ -5,11 +5,9 @@ import Status from 'components/shared/Status'
 import TitularInfo from 'components/shared/TitularInfo'
 import Loader from 'components/Loader'
 import Error from 'components/Error'
-import RecommendedTvShows from 'components/tvshows/RecommendedTvShows'
-import SimilarTvShows from 'components/tvshows/SimilarTvShows'
-
 import 'styles/movie-details.css'
 import Seasons from 'components/tvshows/Seasons'
+import Recommended from 'components/shared/Recommended';
 
 /*
 	Individual tvshows details page
@@ -34,8 +32,8 @@ const TvShowsDetails = () => {
 				<Status {...data} />
 				<Seasons {...data} />
 				<Casts {...data.credits} />
-				<RecommendedTvShows {...data.recommendations} />
-				<SimilarTvShows {...data.similar} />
+				<Recommended {...data.recommendations} />
+				<Recommended {...data.similar} />
 			</section>
 		</main>
 	)

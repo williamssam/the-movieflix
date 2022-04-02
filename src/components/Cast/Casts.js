@@ -40,7 +40,6 @@ const Casts = ({ cast }) => {
 														{character ? (
 															<p>{character}</p>
 														) : null}
-														{/* <p>2 episode</p> */}
 													</div>
 												</Link>
 											</article>

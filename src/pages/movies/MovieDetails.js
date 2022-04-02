@@ -6,8 +6,7 @@ import { useRequest } from 'hooks/useRequest'
 import Loader from 'components/Loader'
 import Error from 'components/Error'
 import 'styles/movie-details.css'
-import SimilarMovies from 'components/movie/SimilarMovies'
-import RecommendedMovies from 'components/movie/RecommendedMovies'
+import Recommended from 'components/shared/Recommended';
 
 /*
 	Individual movie details page
@@ -31,8 +30,8 @@ const MovieDetails = () => {
 				<TitularInfo {...data} />
 				<Status {...data} />
 				<Casts {...data.credits} />
-				<RecommendedMovies {...data.recommendations} />
-				<SimilarMovies {...data.similar} />
+				<Recommended {...data.recommendations} />
+				<Recommended {...data.similar} />
 			</section>
 		</main>
 	)

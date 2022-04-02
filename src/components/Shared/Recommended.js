@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
-import { getAverageRatings } from 'utils/getAverageRatings'
 import defaultImage from 'assets/default-image.jpg'
+import { getAverageRatings } from 'utils/getAverageRatings'
 
-const RecommendedMovies = ({ results }) => {
+const Recommended = ({ results }) => {
 	return (
 		<section className='recommended-movie'>
 			<div className='container'>
@@ -18,10 +18,14 @@ const RecommendedMovies = ({ results }) => {
 								poster_path,
 								vote_average,
 								name,
-								release_date,
+                release_date,
 							}) => (
 								<article key={id}>
-									<Link to={`/movie/${id}`} title={title}>
+									<Link to={
+												release_date
+													? `${`/movie/${id}`}`
+													: `${`/tvshow/${id}`}`
+											} title={title}>
 										<img
 											src={
 												poster_path
@@ -34,7 +38,7 @@ const RecommendedMovies = ({ results }) => {
 									</Link>
 
 									<div className='movie-info'>
-										<Link to={`/movie/${id}`}>
+										<Link to={`/tvshow/${id}`}>
 											<h3>{title ?? name}</h3>
 										</Link>
 										<div className='movie-other-info'>
@@ -51,7 +55,7 @@ const RecommendedMovies = ({ results }) => {
 															? getAverageRatings(vote_average)
 															: null
 													}>
-													{vote_average}
+													{vote_average.toFixed(1)}
 												</span>
 												/10
 											</p>
@@ -66,4 +70,4 @@ const RecommendedMovies = ({ results }) => {
 	)
 }
 
-export default RecommendedMovies
+export default Recommended

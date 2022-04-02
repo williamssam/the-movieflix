@@ -250,8 +250,8 @@
 }
 
 .seasons {
-	display: flex;
-	flex-wrap: wrap;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 	gap: 4rem;
 	padding-top: 3rem;
 }
@@ -268,7 +268,6 @@
 	gap: 2rem;
 	border: 1px solid #eee;
 	border-radius: var(--border-radius);
-	flex: 1 1 400px;
 	overflow: hidden;
 }
 

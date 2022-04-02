@@ -1,9 +1,9 @@
 import { Switch, Route } from 'react-router-dom'
-import Movies from 'pages/movies'
+import MoviesHome from 'pages/movies/MoviesHome'
 import MovieDetails from 'pages/movies/MovieDetails'
 import NotFound from 'pages/404'
 import Header from 'components/Header'
-import TvShows from 'pages/tvshows'
+import TvShowsHome from 'pages/tvshows/TvShowsHome'
 import TvShowsDetails from 'pages/tvshows/TvShowsDetails'
 import CastsDetails from 'pages/CastsDetails'
 import Home from 'pages'
@@ -19,8 +19,8 @@ function App() {
 			<Header />
 			<Switch>
 				<Route exact path='/' component={Home} />
-				<Route exact path='/movies' component={Movies} />
-				<Route exact path='/tvshows' component={TvShows} />
+				<Route exact path='/movies' component={MoviesHome} />
+				<Route exact path='/tvshows' component={TvShowsHome} />
 				{/* on show if user is logged in */}
 				<AuthRoute path='/watchlist' exact>
 					<Watchlist />

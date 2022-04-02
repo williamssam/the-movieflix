@@ -1,17 +1,14 @@
-import Films from 'components/movie/Films';
 import Search from 'components/shared/Search';
-import Series from 'components/tvshows/Series';
 import Error from 'components/Error';
 import useSWR from 'swr';
 import Loader from 'components/Loader';
+import Movies from 'components/shared/Movies';
 const apiKey = process.env.REACT_APP_API_KEY;
 
 const Home = () => {
 	const { data: movies, error } = useSWR(
 		`https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKey}`
 	);
-
-	console.log('trendingmovies', movies);
 
 	const { data: tvshows } = useSWR(
 		`https://api.themoviedb.org/3/trending/tv/day?api_key=${apiKey}`
@@ -44,12 +41,12 @@ const Home = () => {
 				<div className='container'>
 					<div>
 						<h2 className='overall-title'>Trending Movies</h2>
-						<Films data={movies} />
+						<Movies data={movies} />
 					</div>
 
 					<div>
 						<h2 className='overall-title'>Trending TvShows</h2>
-						<Series data={tvshows} />
+						<Movies data={tvshows} />
 					</div>
 				</div>
 			</section>
